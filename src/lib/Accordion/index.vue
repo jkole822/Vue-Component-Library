@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // Packages
 import { Accordion as ArkAccordion } from "@ark-ui/vue/accordion";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 // Styles
 import {
