@@ -1,9 +1,9 @@
 import type { HeadingLevels } from "../../types";
-import type { JSX } from "vue/jsx-runtime";
+import type { VNode } from "vue";
 
 export interface AccordionItem {
   id: string;
-  content?: JSX.Element;
+  content?: VNode | (() => VNode) | VNode[] | (() => VNode[]);
   description?: string;
   disabled?: boolean;
   title: string;
