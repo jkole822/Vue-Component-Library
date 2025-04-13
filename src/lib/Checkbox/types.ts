@@ -17,6 +17,7 @@ export interface Props {
   name: string;
   readOnly?: boolean;
   required?: boolean;
-  validationState: CheckboxValidationState;
+  validationState?: CheckboxValidationState;
   value?: boolean;
+  withField?: boolean;
 }

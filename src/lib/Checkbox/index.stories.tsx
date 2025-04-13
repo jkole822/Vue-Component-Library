@@ -27,28 +27,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const args = {
+  defaultChecked: false,
+  description: faker.lorem.sentence(),
+  disabled: false,
+  errorMessage: faker.lorem.sentence(),
+  name: faker.lorem.word(),
+  readOnly: false,
+  required: false,
+};
+
 export const Basic: Story = {
-  args: {
-    defaultChecked: false,
-    description: faker.lorem.sentence(),
-    disabled: false,
-    errorMessage: faker.lorem.sentence(),
-    name: faker.lorem.word(),
-    readOnly: false,
-    required: false,
-    validationState: CheckboxValidationStateEnum.Valid,
-  },
+  args,
 };
 
 export const DefaultChecked: Story = {
   args: {
+    ...args,
     defaultChecked: true,
-    description: faker.lorem.sentence(),
-    disabled: false,
-    errorMessage: faker.lorem.sentence(),
-    name: faker.lorem.word(),
-    readOnly: false,
-    required: false,
-    validationState: CheckboxValidationStateEnum.Valid,
+  },
+};
+
+export const WithField: Story = {
+  args: {
+    ...args,
+    withField: true,
   },
 };
