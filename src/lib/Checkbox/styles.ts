@@ -5,8 +5,6 @@ checkbox-container
 cursor-pointer
 group
 w-fit
-
-data-disabled:cursor-not-allowed
 `;
 
 export const DescriptionStyles = oneLine`
@@ -37,12 +35,16 @@ items-center
 
 [&[data-disabled]_svg]:cursor-not-allowed
 
-[&[data-disabled]_~_label]:cursor-not-allowed
-[&[data-disabled]_~_label]:!text-neutral-primary-600
+[&[data-disabled]_[data-part=label]]:cursor-not-allowed
+[&[data-disabled]_[data-part=label]]:!text-neutral-primary-600
 
-[&[data-disabled]_~_label:after]:!w-0
+[&[data-disabled]_[data-part=label]:after]:!w-0
 
 [&[data-disabled]_svg_.path]:!stroke-neutral-primary-600
+
+[&:focus-within_[data-part=label]]:text-neutral-primary-50
+
+[&:focus-within_[data-part=label]:after]:w-full
 `;
 
 export const LabelStyles = oneLine`
