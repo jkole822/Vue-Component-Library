@@ -38,7 +38,9 @@ const isLarge = useMediaQuery("(min-width: 1024px)");
 const cards = ref([...items]); // use spread to avoid shared reference
 
 // Computed
-const displacement = computed(() => (isLarge ? 220 : isSmall ? 170 : 140));
+const displacement = computed(() =>
+  isLarge.value ? 220 : isSmall.value ? 170 : 140
+);
 
 // Helpers
 const handleNext = () => {
@@ -56,7 +58,7 @@ const handlePrevious = () => {
       <div
         v-for="({ cta, description, image, title }, index) in cards"
         :class="CardStyles"
-        :key="`${title}-${index}`"
+        :key="title"
         :style="{
           backgroundImage: `url('${image.src}')`,
           left:
