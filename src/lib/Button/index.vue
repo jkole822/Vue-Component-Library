@@ -26,13 +26,15 @@ const {
   ariaLabel,
   className = "",
   href,
-  onClick,
   showBottomGlow = false,
   target = "_self",
   type = "button",
   variant = ButtonVariantsEnum.fill,
   ...rest
 } = defineProps<Props>();
+
+// Emits
+const emit = defineEmits(["click"]);
 
 // State
 const active = ref(false);
@@ -55,7 +57,7 @@ const variantStyles = computed(() =>
 // Helpers
 const handleClick = () => {
   active.value = true;
-  if (onClick) onClick();
+  emit("click");
 };
 
 // Watchers
@@ -70,6 +72,8 @@ watch(active, () => {
 
 <template>
   <component
+    v-bind="rest"
+    @click="handleClick"
     :aria-controls="ariaControls"
     :aria-expanded="ariaExpanded"
     :aria-haspopup="ariaHaspopup"
@@ -81,12 +85,10 @@ watch(active, () => {
     :rel="!!href && target === '_blank' ? 'noreferrer' : undefined"
     :target="target"
     :type="type"
-    @click="handleClick"
-    v-bind="rest"
   >
     <slot></slot>
     <div v-if="isFillButton">
-      <div v-for="index in 6" :key="index" :class="`star star-${index}`">
+      <div v-for="index in 6" :class="`star star-${index}`" :key="index">
         <StarVector />
       </div>
     </div>

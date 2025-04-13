@@ -15,16 +15,16 @@ import type { Props } from "./types";
 const { value, ...rest } = defineProps<Props>();
 
 // State
-const checkedState = ref(false);
+const checked = ref(false);
 
 // Helpers
-const handleChange = () => {
-  checkedState.value = !checkedState.value;
+const handleChange = (value: boolean) => {
+  checked.value = value;
 };
 </script>
 
 <template>
-  <Checkbox @checked="handleChange" :value="checkedState" v-bind="rest" />
+  <Checkbox v-bind="rest" @update:checked="handleChange" :value="checked" />
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ checkedState ? "Checked" : "Not Checked" }}</p>
+  <p :class="PararaphStyles">{{ checked ? "Checked" : "Not Checked" }}</p>
 </template>

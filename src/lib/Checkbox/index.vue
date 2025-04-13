@@ -32,11 +32,11 @@ const {
 <template>
   <div :class="[className, ContainerStyles]">
     <ArkCheckbox.Root
-      @change="$emit('checked')"
+      v-bind="rest"
+      @update:checked="($event) => $emit('update:checked', $event)"
       :class="InputStyles"
       :data-invalid="validationState === CheckboxValidationStateEnum.Invalid"
       :value="value ? 'on' : 'off'"
-      v-bind="rest"
     >
       <svg :class="VectorStyles" viewBox="0 0 64 64" height="2em" width="2em">
         <path
@@ -48,12 +48,12 @@ const {
       <ArkCheckbox.HiddenInput />
       <ArkCheckbox.Label :class="LabelStyles">{{ name }}</ArkCheckbox.Label>
     </ArkCheckbox.Root>
-    <div :class="DescriptionStyles" v-if="description">{{ description }}</div>
+    <div v-if="description" :class="DescriptionStyles">{{ description }}</div>
     <div
-      :class="ErrorMessageStyles"
       v-if="
         errorMessage && validationState === CheckboxValidationStateEnum.Invalid
       "
+      :class="ErrorMessageStyles"
     >
       {{ errorMessage }}
     </div>

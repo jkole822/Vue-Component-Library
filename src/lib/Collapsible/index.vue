@@ -14,9 +14,9 @@ const { className = "", ...rest } = defineProps<Props>();
 
 <template>
   <ArkCollapsible.Root
+    v-bind="rest"
     @update:open="($event) => $emit('update:open', $event)"
     :class="className"
-    v-bind="rest"
   >
     <ArkCollapsible.Trigger :class="TriggerStyles">
       <slot name="trigger"></slot>

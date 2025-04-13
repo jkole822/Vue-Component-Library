@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Packages
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 // Components
 import Button from "../Button/index.vue";
@@ -26,8 +26,7 @@ import { ButtonVariantsEnum } from "../Button/types";
 import type { Props } from "./types";
 
 // Props
-const props = defineProps<Props>();
-const { className = "", items } = props;
+const { className = "", items } = defineProps<Props>();
 
 // Hooks
 const isTwoExtraSmall = useMediaQuery("(min-width: 384px)");
@@ -50,6 +49,15 @@ const handleNext = () => {
 const handlePrevious = () => {
   cards.value = [cards.value[items.length - 1], ...cards.value.slice(0, -1)];
 };
+
+// Life Cycle
+onMounted(() => {
+  const ids = items.map((item) => item.id);
+  const hasDuplicates = ids.length !== new Set(ids).size;
+  if (hasDuplicates) {
+    console.warn("Duplicate item IDs detected in accordion items.");
+  }
+});
 </script>
 
 <template>

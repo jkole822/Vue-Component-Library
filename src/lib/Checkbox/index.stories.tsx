@@ -37,6 +37,18 @@ export const Basic: Story = {
     readOnly: false,
     required: false,
     validationState: CheckboxValidationStateEnum.Valid,
-    value: false,
+  },
+};
+
+export const DefaultChecked: Story = {
+  args: {
+    defaultChecked: true,
+    description: faker.lorem.sentence(),
+    disabled: false,
+    errorMessage: faker.lorem.sentence(),
+    name: faker.lorem.word(),
+    readOnly: false,
+    required: false,
+    validationState: CheckboxValidationStateEnum.Valid,
   },
 };
