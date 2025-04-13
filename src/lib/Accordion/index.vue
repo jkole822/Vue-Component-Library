@@ -15,16 +15,13 @@ import {
 } from "./styles";
 
 // Types
-import type { JSX } from "react";
 import type { Props } from "./types";
 
 // Props
 const { className = "", headingLevel, items, ...rest } = defineProps<Props>();
 
 // Computed
-const headingLevelElement = computed(
-  () => headingLevel as keyof JSX.IntrinsicElements
-);
+const headingLevelElement = computed(() => headingLevel);
 
 // Life Cycle
 onMounted(() => {
