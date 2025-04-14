@@ -42,6 +42,7 @@ const {
   >
     <Field.Input
       v-bind="rest"
+      @input="$emit('update:value', $event)"
       :class="[inputClass, InputStyles({ hasValue: !!value })]"
       :type="type"
       :value="value"

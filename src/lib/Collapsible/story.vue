@@ -40,5 +40,5 @@ const handleOpen = (value: boolean) => {
     <span>{{ faker.lorem.words(4) }}</span>
   </Collapsible>
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ open ? "Open" : "Closed" }}</p>
+  <p :class="PararaphStyles">{{ openState ? "Open" : "Closed" }}</p>
 </template>
