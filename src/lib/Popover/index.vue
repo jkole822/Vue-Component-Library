@@ -39,7 +39,7 @@ const {
         <ArkPopover.Arrow class="popover-arrow">
           <ArkPopover.ArrowTip class="popover-arrow-tip" />
         </ArkPopover.Arrow>
-        <ArkPopover.Title :class="{ TitleStyles }">
+        <ArkPopover.Title :class="TitleStyles">
           {{ title }}
         </ArkPopover.Title>
         <ArkPopover.Description :class="DescriptionStyles">

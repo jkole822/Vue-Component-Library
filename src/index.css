@@ -365,3 +365,8 @@
     @apply bg-neutral-secondary-800 p-5 text-neutral-primary-100;
   }
 }
+
+:root {
+  --arrow-background: var(--color-neutral-secondary-900);
+  --arrow-size: 0.75rem;
+}
