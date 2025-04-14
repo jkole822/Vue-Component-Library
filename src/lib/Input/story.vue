@@ -21,7 +21,7 @@ const value = ref("");
 <template>
   <Input
     v-bind="props"
-    @update:value="(newValue) => console.log(newValue)"
+    @update:value="(event) => (value = event.target.value)"
     :value="value"
   />
   <p :class="SubHeadingStyles">Binding Check</p>
