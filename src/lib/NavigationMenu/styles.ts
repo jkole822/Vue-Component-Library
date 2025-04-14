@@ -64,7 +64,7 @@ ${ContentStyles}
 grid-cols-1
 w-full
 xs:grid-cols-[0.75fr_1fr]
-xs:w-[min(500px,_90dvw)]
+sm:w-[min(500px,_90dvw)]
 
 [&_>_li:first-child]:row-span-3
 `;
