@@ -41,13 +41,6 @@ export const Basic: Story = {
   args,
 };
 
-export const DefaultChecked: Story = {
-  args: {
-    ...args,
-    defaultChecked: true,
-  },
-};
-
 export const WithField: Story = {
   args: {
     ...args,

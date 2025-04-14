@@ -16,21 +16,21 @@ import { ButtonVariantsEnum } from "../Button/types";
 import type { Props } from "./types";
 
 // Props
-const { open, ...rest } = defineProps<Props>();
+const props = defineProps<Props>();
 
 // State
 const name = ref("");
-const openState = ref(false);
+const open = ref(false);
 const username = ref("");
 
 // Helpers
 const handleOpen = () => {
-  openState.value = !openState.value;
+  open.value = !open.value;
 };
 </script>
 
 <template>
-  <Dialog v-bind="rest" @close="() => (openState = false)" :open="openState">
+  <Dialog v-bind="props" @close="() => (open = false)" :open="open">
     <template v-slot:trigger>
       <Button @click="handleOpen" :variant="ButtonVariantsEnum.fill"
         >Open Dialog

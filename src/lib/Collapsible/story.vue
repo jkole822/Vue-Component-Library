@@ -14,19 +14,19 @@ import { PararaphStyles, SubHeadingStyles } from "../../styles";
 import type { Props } from "./types";
 
 // Props
-const { open, ...rest } = defineProps<Props>();
+const props = defineProps<Props>();
 
 // State
-const openState = ref(false);
+const open = ref(false);
 
 // Helpers
 const handleOpen = (value: boolean) => {
-  openState.value = value;
+  open.value = value;
 };
 </script>
 
 <template>
-  <Collapsible v-bind="rest" @update:open="handleOpen" :open="openState">
+  <Collapsible v-bind="props" @update:open="handleOpen" :open="open">
     <template v-slot:trigger>
       <div>
         <span class="mr-2">Button</span>
@@ -40,5 +40,5 @@ const handleOpen = (value: boolean) => {
     <span>{{ faker.lorem.words(4) }}</span>
   </Collapsible>
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ openState ? "Open" : "Closed" }}</p>
+  <p :class="PararaphStyles">{{ open ? "Open" : "Closed" }}</p>
 </template>

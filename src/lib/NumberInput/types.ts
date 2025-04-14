@@ -13,7 +13,6 @@ export interface Props {
   asChild?: boolean;
   clampValueOnBlur?: boolean;
   className?: string;
-  defaultValue?: string;
   description?: string;
   disabled?: boolean;
   errorMessage?: string;

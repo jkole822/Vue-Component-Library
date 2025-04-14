@@ -50,13 +50,6 @@ export const Basic: Story = {
   args,
 };
 
-export const DefaultValue: Story = {
-  args: {
-    ...args,
-    defaultValue: "100",
-  },
-};
-
 export const WithField: Story = {
   args: {
     ...args,

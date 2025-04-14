@@ -9,7 +9,6 @@ export type CheckboxValidationState =
 
 export interface Props {
   className?: string;
-  defaultChecked?: boolean;
   description?: string;
   disabled?: boolean;
   errorMessage?: string;

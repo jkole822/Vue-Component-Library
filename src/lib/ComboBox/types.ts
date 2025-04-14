@@ -48,7 +48,6 @@ export interface Props {
   defaultHighlightedValue?: string;
   defaultInputValue?: string;
   defaultOpen?: boolean;
-  defaultValue?: string[];
   description?: string;
   disabled?: boolean;
   disableLayer?: boolean;

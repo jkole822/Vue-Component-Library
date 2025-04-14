@@ -12,7 +12,7 @@ import { PararaphStyles, SubHeadingStyles } from "../../styles";
 import type { Props } from "./types";
 
 // Props
-const { value, ...rest } = defineProps<Props>();
+const props = defineProps<Props>();
 
 // State
 const checked = ref(false);
@@ -24,7 +24,7 @@ const handleChange = (value: boolean) => {
 </script>
 
 <template>
-  <Checkbox v-bind="rest" @update:checked="handleChange" :value="checked" />
+  <Checkbox v-bind="props" @update:checked="handleChange" :value="checked" />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="PararaphStyles">{{ checked ? "Checked" : "Not Checked" }}</p>
 </template>
