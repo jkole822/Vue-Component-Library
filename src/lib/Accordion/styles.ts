@@ -43,7 +43,6 @@ rounded-lg
 
 export const ContentStyles = oneLine`
 accordion-content
-animate-accordion-slide-up
 bg-neutral-secondary-900/25
 overflow-hidden
 text-sm
