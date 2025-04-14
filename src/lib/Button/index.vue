@@ -55,9 +55,9 @@ const variantStyles = computed(() =>
 );
 
 // Helpers
-const handleClick = () => {
+const handleClick = (event: Event) => {
   active.value = true;
-  emit("click");
+  emit("click", event);
 };
 
 // Watchers

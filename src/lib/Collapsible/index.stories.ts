@@ -16,16 +16,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    defaultOpen: false,
-    disabled: false,
-    lazyMount: false,
-    unmountOnExit: false,
-  },
-};
-
-export const DefaultOpen: Story = {
-  args: {
-    defaultOpen: true,
     disabled: false,
     lazyMount: false,
     unmountOnExit: false,

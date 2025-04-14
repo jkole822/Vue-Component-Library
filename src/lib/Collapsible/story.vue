@@ -26,7 +26,7 @@ const handleOpen = (value: boolean) => {
 </script>
 
 <template>
-  <Collapsible @update:open="handleOpen" v-bind="rest" :open="openState">
+  <Collapsible v-bind="rest" @update:open="handleOpen" :open="openState">
     <template v-slot:trigger>
       <div>
         <span class="mr-2">Button</span>
