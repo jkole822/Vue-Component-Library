@@ -303,9 +303,9 @@ relative
 size-[15px]
 transition-transform
 
-in-data-[orientation=vertical]:-rotate-90
+in-data-[expanded=true]:[transform:rotateX(180deg)]
 
-[[data-orientation=vertical]_.navigation-menu-trigger[data-expanded=true]_&]:[transform:rotate(-90deg)_rotateX(180deg)]
+in-data-[orientation=vertical]:-rotate-90
 `;
 
 export const TriggerStyles = oneLine`
@@ -326,9 +326,8 @@ py-5
 text-neutral-300
 transition-colors
 w-auto
-md:bg-neutral-950
 
-[&[data-expanded=true]_.navigation-menu-trigger-indicator]:[transform:rotateX(180deg)]
+md:bg-neutral-950
 
 disabled:!bg-neutral-800
 disabled:cursor-not-allowed
