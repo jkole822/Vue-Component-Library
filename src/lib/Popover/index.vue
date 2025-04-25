@@ -39,10 +39,10 @@ const {
         <ArkPopover.Arrow class="popover-arrow">
           <ArkPopover.ArrowTip class="popover-arrow-tip" />
         </ArkPopover.Arrow>
-        <ArkPopover.Title :class="TitleStyles">
+        <ArkPopover.Title v-if="title" :class="TitleStyles">
           {{ title }}
         </ArkPopover.Title>
-        <ArkPopover.Description :class="DescriptionStyles">
+        <ArkPopover.Description v-if="description" :class="DescriptionStyles">
           {{ description }}
         </ArkPopover.Description>
         <slot></slot>
