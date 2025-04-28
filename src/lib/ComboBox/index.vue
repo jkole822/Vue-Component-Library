@@ -3,6 +3,7 @@
 import {
   Combobox as ArkComboBox,
   createListCollection,
+  useCombobox,
 } from "@ark-ui/vue/combobox";
 import { Field } from "@ark-ui/vue/field";
 import { computed, ref } from "vue";
@@ -22,6 +23,9 @@ import {
   ItemStyles,
   ItemTextStyles,
   LabelStyles,
+  PillCloseButtonStyles,
+  PillContainerStyles,
+  PillStyles,
   TriggerStyles,
 } from "./styles";
 
@@ -36,10 +40,16 @@ const {
   disabled,
   errorMessage,
   items: initialItems,
+  multiple,
   name,
   withField,
   ...rest
 } = defineProps<Props>();
+
+// Emits
+const $emit = defineEmits<{
+  (e: "change", value: ArkComboBox.ValueChangeDetails): void;
+}>();
 
 // State
 const items = ref(initialItems);
@@ -59,26 +69,57 @@ const handleInputChange = (details: ArkComboBox.InputValueChangeDetails) => {
     item.label.toLowerCase().includes(details.inputValue.toLowerCase())
   );
 };
+
+const combobox = useCombobox({
+  ...rest,
+  collection: collection.value,
+  disabled,
+  multiple,
+  name,
+  onInputValueChange: handleInputChange,
+  onValueChange: (value) => $emit("change", value),
+});
+
+const handleRemoveItem = (value: string) => {
+  combobox.value.setValue(
+    combobox.value.selectedItems
+      .filter((selectedItem) => selectedItem.value !== value)
+      .map((item) => item.id)
+  );
+};
 </script>
 
 <template>
   <component
+    :class="className"
     :disabled="disabled"
     :is="element"
     :invalid="validationState === ComboBoxValidationStateEnum.Invalid"
     :readonly="readOnly"
     :required="required"
   >
-    <ArkComboBox.Root
-      v-bind="rest"
-      @input-value-change="handleInputChange"
-      @update:modelValue="(value) => $emit('update:modelValue', value)"
-      :collection="collection"
-      :disabled="disabled"
-      :name="name"
-    >
+    <ArkComboBox.RootProvider :value="combobox">
       <ArkComboBox.Label :class="LabelStyles">{{ name }}</ArkComboBox.Label>
       <ArkComboBox.Control :class="ControlStyles">
+        <div
+          v-if="multiple && combobox.selectedItems.length > 0"
+          :class="PillContainerStyles"
+        >
+          <span
+            v-for="item in combobox.selectedItems"
+            :class="PillStyles"
+            :key="item.value"
+          >
+            <span>{{ item.label }}</span>
+            <button
+              @click="() => handleRemoveItem(item.value)"
+              aria-label="Remove item"
+              :class="PillCloseButtonStyles"
+            >
+              <i aria-hidden="true" className="fa-solid fa-xmark"></i>
+            </button>
+          </span>
+        </div>
         <ArkComboBox.Input :class="InputStyles" />
         <ArkComboBox.Trigger :class="TriggerStyles">
           <i aria-hidden="true" class="fa-solid fa-sort"></i>
@@ -109,7 +150,7 @@ const handleInputChange = (details: ArkComboBox.InputValueChangeDetails) => {
           </ArkComboBox.Content>
         </ArkComboBox.Positioner>
       </Teleport>
-    </ArkComboBox.Root>
+    </ArkComboBox.RootProvider>
     <Field.HelperText
       v-if="description && withField"
       :class="DescriptionStyles"

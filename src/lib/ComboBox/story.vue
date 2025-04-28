@@ -34,8 +34,7 @@ const toggleValidationState = () => {
 <template>
   <ComboBox
     v-bind="rest"
-    @update:modelValue="(newValue) => (value = newValue)"
-    :modelValue="value"
+    @change="(update) => (value = update.value)"
     :validationState="validationState"
     :withField="withField"
   />

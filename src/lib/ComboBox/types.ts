@@ -60,7 +60,6 @@ export interface Props {
   inputValue?: string;
   lazyMount?: boolean;
   loopFocus?: boolean;
-  modelValue?: string[];
   multiple?: boolean;
   name?: string;
   navigate?: (details: any) => void;
