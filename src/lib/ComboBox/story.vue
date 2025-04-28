@@ -10,24 +10,23 @@ import ComboBox from "./index.vue";
 import { PararaphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
-import { ComboBoxValidationStateEnum } from "./types";
-import type { ComboBoxValidationState, Props } from "./types";
+import { ValidationStateEnum } from "../../types";
+import type { Props } from "./types";
+import type { ValidationState } from "../../types";
 
 // Props
 const { withField, ...rest } = defineProps<Props>();
 
 // State
 const value = ref<string[]>([]);
-const validationState = ref<ComboBoxValidationState>(
-  ComboBoxValidationStateEnum.Valid
-);
+const validationState = ref<ValidationState>(ValidationStateEnum.Valid);
 
 // Helpers
 const toggleValidationState = () => {
   validationState.value =
-    validationState.value === ComboBoxValidationStateEnum.Valid
-      ? ComboBoxValidationStateEnum.Invalid
-      : ComboBoxValidationStateEnum.Valid;
+    validationState.value === ValidationStateEnum.Valid
+      ? ValidationStateEnum.Invalid
+      : ValidationStateEnum.Valid;
 };
 </script>
 

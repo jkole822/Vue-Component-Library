@@ -1,4 +1,5 @@
 import { Combobox } from "@ark-ui/vue/combobox";
+import type { ValidationState } from "../../types";
 
 export enum ComboBoxInputBehaviorEnum {
   None = "none",
@@ -6,30 +7,21 @@ export enum ComboBoxInputBehaviorEnum {
   AutoComplete = "autocomplete",
 }
 
+export type ComboBoxInputBehavior =
+  | ComboBoxInputBehaviorEnum.None
+  | ComboBoxInputBehaviorEnum.AutoHighlight
+  | ComboBoxInputBehaviorEnum.AutoComplete;
+
 export enum ComboBoxSelectionBehaviorEnum {
   Replace = "replace",
   Clear = "clear",
   Preserve = "preserve",
 }
 
-export enum ComboBoxValidationStateEnum {
-  Valid = "valid",
-  Invalid = "invalid",
-}
-
-export type ComboBoxInputBehavior =
-  | ComboBoxInputBehaviorEnum.None
-  | ComboBoxInputBehaviorEnum.AutoHighlight
-  | ComboBoxInputBehaviorEnum.AutoComplete;
-
 export type ComboBoxSelectionBehavior =
   | ComboBoxSelectionBehaviorEnum.Replace
   | ComboBoxSelectionBehaviorEnum.Clear
   | ComboBoxSelectionBehaviorEnum.Preserve;
-
-export type ComboBoxValidationState =
-  | ComboBoxValidationStateEnum.Valid
-  | ComboBoxValidationStateEnum.Invalid;
 
 export interface ComboBoxItem {
   id: string;
@@ -75,6 +67,6 @@ export interface Props {
   scrollToIndexFn?: (details: any) => void;
   selectionBehavior?: ComboBoxSelectionBehavior;
   unmountOnExit?: boolean;
-  validationState?: ComboBoxValidationState;
+  validationState?: ValidationState;
   withField?: boolean;
 }

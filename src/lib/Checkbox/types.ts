@@ -1,11 +1,4 @@
-export enum CheckboxValidationStateEnum {
-  Valid = "valid",
-  Invalid = "invalid",
-}
-
-export type CheckboxValidationState =
-  | CheckboxValidationStateEnum.Invalid
-  | CheckboxValidationStateEnum.Valid;
+import type { ValidationState } from "../../types";
 
 export interface Props {
   className?: string;
@@ -16,7 +9,7 @@ export interface Props {
   name: string;
   readOnly?: boolean;
   required?: boolean;
-  validationState?: CheckboxValidationState;
+  validationState?: ValidationState;
   value?: boolean;
   withField?: boolean;
 }

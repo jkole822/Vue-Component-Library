@@ -3,16 +3,12 @@
 import { Field } from "@ark-ui/vue/field";
 
 // Styles
-import {
-  ContainerStyles,
-  DescriptionStyles,
-  ErrorMessageStyles,
-  InputStyles,
-  LabelStyles,
-} from "./styles";
+import { ContainerStyles, InputStyles, LabelStyles } from "./styles";
+import { DescriptionStyles, ErrorMessageStyles } from "../../styles";
 
 // Types
-import { InputTypeEnum, InputValidationStateEnum } from "./types";
+import { InputTypeEnum } from "./types";
+import { ValidationStateEnum } from "../../types";
 import type { Props } from "./types";
 
 // Props
@@ -26,7 +22,7 @@ const {
   readOnly,
   required,
   type = InputTypeEnum.text,
-  validationState = InputValidationStateEnum.Valid,
+  validationState = ValidationStateEnum.Valid,
   value,
   ...rest
 } = defineProps<Props>();
@@ -36,7 +32,7 @@ const {
   <Field.Root
     :class="[className, ContainerStyles]"
     :disabled="disabled"
-    :invalid="validationState === InputValidationStateEnum.Invalid"
+    :invalid="validationState === ValidationStateEnum.Invalid"
     :readOnly="readOnly"
     :required="required"
   >

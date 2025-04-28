@@ -5,7 +5,7 @@ import { faker } from "@faker-js/faker";
 import Checkbox from "./story.vue";
 
 // Types
-import { CheckboxValidationStateEnum } from "./types";
+import { ValidationStateEnum } from "../../types";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta = {
@@ -16,10 +16,7 @@ const meta = {
     className: { control: "text" },
     validationState: {
       control: "select",
-      options: [
-        CheckboxValidationStateEnum.Valid,
-        CheckboxValidationStateEnum.Invalid,
-      ],
+      options: [ValidationStateEnum.Valid, ValidationStateEnum.Invalid],
     },
   },
 } satisfies Meta<typeof Checkbox>;

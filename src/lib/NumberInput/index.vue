@@ -8,16 +8,15 @@ import { NumberInput as ArkNumberInput } from "@ark-ui/vue/number-input";
 import {
   ControlStyles,
   DecrementTriggerStyles,
-  DescriptionStyles,
-  ErrorMessageStyles,
   IncrementTriggerStyles,
   InputContainerStyles,
   InputStyles,
   LabelStyles,
 } from "./styles";
+import { DescriptionStyles, ErrorMessageStyles } from "../../styles";
 
 // Types
-import { NumberInputValidationStateEnum } from "./types";
+import { ValidationStateEnum } from "../../types";
 import type { Props } from "./types";
 
 // Props
@@ -41,7 +40,7 @@ const element = computed(() => {
   <component
     :class="className"
     :disabled="disabled"
-    :invalid="validationState === NumberInputValidationStateEnum.Invalid"
+    :invalid="validationState === ValidationStateEnum.Invalid"
     :is="element"
     :readOnly="readOnly"
     :required="required"
@@ -66,17 +65,13 @@ const element = computed(() => {
         </ArkNumberInput.Control>
       </div>
     </ArkNumberInput.Root>
-    <Field.HelperText
-      v-if="withField && description"
-      :class="DescriptionStyles"
-    >
-      {{ description }}
-    </Field.HelperText>
-    <Field.ErrorText
-      v-if="withField && errorMessage"
-      :class="ErrorMessageStyles"
-    >
-      {{ errorMessage }}
-    </Field.ErrorText>
+    <div v-if="withField" class="mt-2">
+      <Field.HelperText v-if="description" :class="DescriptionStyles">
+        {{ description }}
+      </Field.HelperText>
+      <Field.ErrorText v-if="errorMessage" :class="ErrorMessageStyles">
+        {{ errorMessage }}
+      </Field.ErrorText>
+    </div>
   </component>
 </template>

@@ -1,11 +1,4 @@
-export enum NumberInputValidationStateEnum {
-  Valid = "valid",
-  Invalid = "invalid",
-}
-
-export type NumberInputValidationState =
-  | NumberInputValidationStateEnum.Invalid
-  | NumberInputValidationStateEnum.Valid;
+import type { ValidationState } from "../../types";
 
 export interface Props {
   allowMouseWheel?: boolean;
@@ -29,6 +22,6 @@ export interface Props {
   required?: boolean;
   spinOnPress?: boolean;
   step?: number;
-  validationState?: NumberInputValidationState;
+  validationState?: ValidationState;
   withField?: boolean;
 }

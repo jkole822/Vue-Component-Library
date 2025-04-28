@@ -1,3 +1,5 @@
+import type { ValidationState } from "../../types";
+
 export enum AutoCompleteEnum {
   name = "name",
   email = "email",
@@ -28,15 +30,6 @@ export type InputType =
   | InputTypeEnum.password
   | InputTypeEnum.text;
 
-export enum InputValidationStateEnum {
-  Valid = "valid",
-  Invalid = "invalid",
-}
-
-export type InputValidationState =
-  | InputValidationStateEnum.Invalid
-  | InputValidationStateEnum.Valid;
-
 export interface Props {
   autoComplete?: AutoCompleteType;
   className?: string;
@@ -52,6 +45,6 @@ export interface Props {
   readOnly?: boolean;
   required?: boolean;
   type?: InputType;
-  validationState?: InputValidationState;
+  validationState?: ValidationState;
   value?: string;
 }

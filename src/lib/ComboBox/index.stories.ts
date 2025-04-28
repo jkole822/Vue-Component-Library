@@ -9,8 +9,9 @@ import ComboBox from "./story.vue";
 import {
   ComboBoxInputBehaviorEnum,
   ComboBoxSelectionBehaviorEnum,
-  ComboBoxValidationStateEnum,
 } from "./types";
+import { ValidationStateEnum } from "../../types";
+import type { ValidationState } from "../../types";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta = {
@@ -36,10 +37,7 @@ const meta = {
     },
     validationState: {
       control: "select",
-      options: [
-        ComboBoxValidationStateEnum.Valid,
-        ComboBoxValidationStateEnum.Invalid,
-      ],
+      options: [ValidationStateEnum.Valid, ValidationStateEnum.Invalid],
     },
   },
 } satisfies Meta<typeof ComboBox>;

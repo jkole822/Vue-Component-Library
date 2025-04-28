@@ -6,7 +6,7 @@ import { v4 as uuid } from "uuid";
 import NumberInput from "./story.vue";
 
 // Types
-import { NumberInputValidationStateEnum } from "./types";
+import { ValidationStateEnum } from "../../types";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta = {
@@ -20,10 +20,7 @@ const meta = {
     pattern: { control: "text" },
     validationState: {
       control: "select",
-      options: [
-        NumberInputValidationStateEnum.Valid,
-        NumberInputValidationStateEnum.Invalid,
-      ],
+      options: [ValidationStateEnum.Valid, ValidationStateEnum.Invalid],
     },
   },
 } satisfies Meta<typeof NumberInput>;

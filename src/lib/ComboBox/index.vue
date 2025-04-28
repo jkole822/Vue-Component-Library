@@ -14,8 +14,6 @@ import {
   ClearTriggerStyles,
   ContentStyles,
   ControlStyles,
-  DescriptionStyles,
-  ErrorMessageStyles,
   InputStyles,
   ItemDescriptionStyles,
   ItemIndicatorStyles,
@@ -28,9 +26,10 @@ import {
   PillStyles,
   TriggerStyles,
 } from "./styles";
+import { DescriptionStyles, ErrorMessageStyles } from "../../styles";
 
 // Types
-import { ComboBoxValidationStateEnum } from "./types";
+import { ValidationStateEnum } from "../../types";
 import type { Props } from "./types";
 
 // Props
@@ -94,7 +93,7 @@ const handleRemoveItem = (value: string) => {
     :class="className"
     :disabled="disabled"
     :is="element"
-    :invalid="validationState === ComboBoxValidationStateEnum.Invalid"
+    :invalid="validationState === ValidationStateEnum.Invalid"
     :readonly="readOnly"
     :required="required"
   >
@@ -151,17 +150,13 @@ const handleRemoveItem = (value: string) => {
         </ArkComboBox.Positioner>
       </Teleport>
     </ArkComboBox.RootProvider>
-    <Field.HelperText
-      v-if="description && withField"
-      :class="DescriptionStyles"
-    >
-      {{ description }}
-    </Field.HelperText>
-    <Field.ErrorText
-      v-if="errorMessage && withField"
-      :class="ErrorMessageStyles"
-    >
-      {{ errorMessage }}
-    </Field.ErrorText>
+    <div v-if="withField" class="mt-2">
+      <Field.HelperText v-if="description" :class="DescriptionStyles">
+        {{ description }}
+      </Field.HelperText>
+      <Field.ErrorText v-if="errorMessage" :class="ErrorMessageStyles">
+        {{ errorMessage }}
+      </Field.ErrorText>
+    </div>
   </component>
 </template>

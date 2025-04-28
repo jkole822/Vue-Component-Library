@@ -7,23 +7,6 @@ group
 w-fit
 `;
 
-export const DescriptionStyles = oneLine`
-block
-checkbox-description
-ml-1.5
-text-neutral-primary-400
-text-sm
-`;
-
-export const ErrorMessageStyles = oneLine`
-block
-checkbox-error-message
-font-medium
-ml-1.5
-text-red-400
-text-sm
-`;
-
 export const InputStyles = oneLine`
 checkbox-input
 flex

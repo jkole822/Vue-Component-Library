@@ -1,5 +1,20 @@
 import { oneLine } from "common-tags";
 
+export const DescriptionStyles = oneLine`
+block
+description
+text-neutral-primary-400
+text-sm
+`;
+
+export const ErrorMessageStyles = oneLine`
+block
+error-message
+font-medium
+text-red-400
+text-sm
+`;
+
 export const HeadingStyles = oneLine`
 font-bold
 mb-3

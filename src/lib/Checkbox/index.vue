@@ -7,16 +7,15 @@ import { Field } from "@ark-ui/vue/field";
 // Styles
 import {
   ContainerStyles,
-  DescriptionStyles,
-  ErrorMessageStyles,
   InputStyles,
   LabelStyles,
   PathStyles,
   VectorStyles,
 } from "./styles";
+import { DescriptionStyles, ErrorMessageStyles } from "../../styles";
 
 // Types
-import { CheckboxValidationStateEnum } from "./types";
+import { ValidationStateEnum } from "../../types";
 import type { Props } from "./types";
 
 // Props
@@ -43,7 +42,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
     :class="[className, ContainerStyles]"
     :disabled="disabled"
     :is="element"
-    :invalid="validationState === CheckboxValidationStateEnum.Invalid"
+    :invalid="validationState === ValidationStateEnum.Invalid"
     :readonly="readOnly"
     :required="required"
   >
@@ -51,7 +50,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
       v-bind="rest"
       @update:checked="($event) => $emit('update:checked', $event)"
       :class="InputStyles"
-      :data-invalid="validationState === CheckboxValidationStateEnum.Invalid"
+      :data-invalid="validationState === ValidationStateEnum.Invalid"
       :disabled="disabled"
       :value="value ? 'on' : 'off'"
     >
@@ -65,17 +64,13 @@ const element = computed(() => (withField ? Field.Root : "div"));
       <ArkCheckbox.HiddenInput />
       <ArkCheckbox.Label :class="LabelStyles">{{ name }}</ArkCheckbox.Label>
     </ArkCheckbox.Root>
-    <Field.HelperText
-      v-if="description && withField"
-      :class="DescriptionStyles"
-    >
-      {{ description }}
-    </Field.HelperText>
-    <Field.ErrorText
-      v-if="errorMessage && withField"
-      :class="ErrorMessageStyles"
-    >
-      {{ errorMessage }}
-    </Field.ErrorText>
+    <div v-if="withField" class="ml-2 mt-1">
+      <Field.HelperText v-if="description" :class="DescriptionStyles">
+        {{ description }}
+      </Field.HelperText>
+      <Field.ErrorText v-if="errorMessage" :class="ErrorMessageStyles">
+        {{ errorMessage }}
+      </Field.ErrorText>
+    </div>
   </component>
 </template>
