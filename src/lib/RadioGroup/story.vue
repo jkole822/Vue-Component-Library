@@ -1,0 +1,29 @@
+<script setup lang="ts">
+// Packages
+import { ref } from "vue";
+
+// Components
+import RadioGroup from "./index.vue";
+
+// Styles
+import { PararaphStyles, SubHeadingStyles } from "../../styles";
+
+// Types
+import type { Props } from "./types";
+
+// Props
+const { onValueChange, value: _, ...props } = defineProps<Props>();
+
+// State
+const value = ref<string | null>(null);
+</script>
+
+<template>
+  <RadioGroup
+    v-bind="props"
+    :onValueChange="(details) => (value = details.value)"
+    :value="value ?? ''"
+  />
+  <p :class="SubHeadingStyles">Binding Check</p>
+  <p :class="PararaphStyles">{{ value }}</p>
+</template>

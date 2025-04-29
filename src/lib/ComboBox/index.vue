@@ -94,7 +94,7 @@ const handleRemoveItem = (value: string) => {
     :disabled="disabled"
     :is="element"
     :invalid="validationState === ValidationStateEnum.Invalid"
-    :readonly="readOnly"
+    :readOnly="readOnly"
     :required="required"
   >
     <ArkComboBox.RootProvider :value="combobox">

@@ -43,7 +43,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
     :disabled="disabled"
     :is="element"
     :invalid="validationState === ValidationStateEnum.Invalid"
-    :readonly="readOnly"
+    :readOnly="readOnly"
     :required="required"
   >
     <ArkCheckbox.Root
