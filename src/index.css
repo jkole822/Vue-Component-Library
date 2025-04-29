@@ -36,11 +36,6 @@
   --animate-popover-fade-out: fadeOut 200ms ease-in-out;
   --animate-select-fade-in: selectFadeIn 200ms ease-in-out;
   --animate-select-fade-out: selectFadeOut 200ms ease-in-out;
-  --animate-toast-fade-out: fadeOut 100ms ease-in;
-  --animate-toast-slide-in: toastSlideIn 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-toast-swipe-out: toastSwipeOut 100ms ease-out;
-  --animate-viewport-hide: viewportHide 300ms ease-in forwards;
-  --animate-viewport-show: viewportShow 300ms ease-out;
 
   --color-neutral-primary-50: oklch(98.5% 0.002 247.839);
   --color-neutral-primary-100: oklch(96.7% 0.003 264.542);
@@ -294,50 +289,6 @@
     to {
       opacity: 0;
       transform: translateY(-8px);
-    }
-  }
-
-  @keyframes toastSlideIn {
-    from {
-      transform: translateX(calc(100% + var(--viewport-padding)));
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes toastSwipeOut {
-    from {
-      transform: translateX(var(--kb-toast-swipe-end-x));
-    }
-
-    to {
-      transform: translateX(calc(100% + var(--viewport-padding)));
-    }
-  }
-
-  @keyframes viewportHide {
-    from {
-      opacity: 1;
-      transform: rotateX(0deg) scale(1);
-    }
-
-    to {
-      opacity: 0;
-      transform: rotateX(-10deg) scale(0.96);
-    }
-  }
-
-  @keyframes viewportShow {
-    from {
-      opacity: 0;
-      transform: rotateX(-20deg) scale(0.96);
-    }
-
-    to {
-      opacity: 1;
-      transform: rotateX(0deg) scale(1);
     }
   }
 }
