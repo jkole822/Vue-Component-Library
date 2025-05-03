@@ -1,13 +1,13 @@
 <script setup lang="ts">
 // Packages
-import { computed, ref } from "vue";
+import { ref } from "vue";
 
 // Components
 import Button from "../Button/index.vue";
 import Select from "./index.vue";
 
 // Styles
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { SubHeadingStyles } from "../../styles";
 
 // Types
 import { ValidationStateEnum } from "../../types";
@@ -18,7 +18,7 @@ import type { ValidationState } from "../../types";
 const { withField, ...rest } = defineProps<Props>();
 
 // State
-const value = ref("");
+const value = ref<string[]>([]);
 const validationState = ref<ValidationState>(ValidationStateEnum.Valid);
 
 // Helpers

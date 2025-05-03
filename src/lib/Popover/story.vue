@@ -13,6 +13,7 @@ import { PararaphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import { AutoCompleteEnum } from "../Input/types";
+import { ButtonVariantsEnum } from "../Button/types.ts";
 import type { Props } from "./types";
 
 // Props
@@ -28,19 +29,21 @@ const id = uuid();
 <template>
   <Popover v-bind="props" @update:open="(open) => (isOpen = open)">
     <template v-slot:trigger>
-      <Button class="rounded-full! p-0! size-15!">
+      <Button
+        class="rounded-full! p-0! size-15!"
+        :variant="ButtonVariantsEnum.outline"
+      >
         <i aria-hidden="true" class="fa-solid fa-ghost text-2xl"></i>
       </Button>
     </template>
     <Input
       @update:value="(event) => (value = event.target.value)"
       :autoComplete="AutoCompleteEnum.name"
-      className="mt-8"
+      className="[&_.input-input_~_label]:bg-neutral-secondary-900! mt-8"
       :id="id"
-      inputClass="[&_~_label]:bg-neutral-secondary-900!"
       name="Lorem"
       required
-      :value="value"
+      :modelValue="value"
     />
   </Popover>
   <p :class="SubHeadingStyles">Binding Check</p>

@@ -112,7 +112,7 @@ export const Outline: Story = {
 export const LineOne: Story = {
   args: {
     ...args,
-    href: "https://www.solidjs.com/",
+    href: "https://vuejs.org/",
     target: "_self",
     variant: ButtonVariantsEnum.lineOne,
   },
@@ -122,7 +122,7 @@ export const LineOne: Story = {
 export const LineTwo: Story = {
   args: {
     ...args,
-    href: "https://www.solidjs.com/",
+    href: "https://vuejs.org/",
     target: "_blank",
     variant: ButtonVariantsEnum.lineTwo,
   },

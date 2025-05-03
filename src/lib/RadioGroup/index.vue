@@ -79,7 +79,7 @@ watch(
       :readOnly="readOnly"
       :value="value"
     >
-      <ArkRadioGroup.Label :class="LabelStyles">
+      <ArkRadioGroup.Label v-if="withField" :class="LabelStyles">
         {{ name }}
       </ArkRadioGroup.Label>
       <ArkRadioGroup.Indicator :class="InputStyles" />
@@ -124,7 +124,6 @@ watch(
       <Field.HelperText v-if="description" :class="DescriptionStyles">
         {{ description }}
       </Field.HelperText>
-
       <Field.ErrorText v-if="errorMessage" :class="ErrorMessageStyles">
         {{ errorMessage }}
       </Field.ErrorText>

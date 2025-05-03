@@ -16,7 +16,6 @@ import {
   ItemLabelStyles,
   ItemStyles,
   LabelStyles,
-  ScrollIconStyles,
   TriggerStyles,
 } from "./styles";
 import { DescriptionStyles, ErrorMessageStyles } from "../../styles";
@@ -53,7 +52,7 @@ const items = ref(options);
 const collection = computed(() =>
   createListCollection({
     items: items.value.map((item) => ({ ...item, value: item.id })),
-  })
+  }),
 );
 
 const element = computed(() => (withField ? Field.Root : "div"));
@@ -81,7 +80,7 @@ const select = useSelect({
       <ArkSelect.Label :class="LabelStyles">
         {{ name }}
       </ArkSelect.Label>
-      <ArkSelect.Trigger :class="TriggerStyles">
+      <ArkSelect.Trigger :class="TriggerStyles" :disabled="disabled">
         <ArkSelect.ValueText :placeholder="placeholder" />
         <ArkSelect.Indicator>
           <i aria-hidden="true" class="fa-solid fa-sort"></i>

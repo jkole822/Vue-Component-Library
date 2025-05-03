@@ -102,18 +102,21 @@ transition-all
 data-[state=checked]:text-primary-500
 
 in-data-invalid:data-[state=checked]:text-red-500
+
+in-data-[orientation=horizontal]:text-center
 `;
 
 export const LabelStyles = oneLine`
-duration-300
-ease-in-out
-font-extrabold
-radio-group-label
-tracking-wider
-uppercase
-transition-all
+block
+capitalize
+duration-200
+font-medium
+mb-2
+select-label
+text-sm
+transition-colors
 
-in-data-disabled:opacity-50
+in-data-invalid:text-red-400
 `;
 
 export const OptionContainerStyles = oneLine`

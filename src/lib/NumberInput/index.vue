@@ -50,9 +50,9 @@ const element = computed(() => {
       @update:modelValue="$emit('update:value', $event)"
       :disabled="disabled"
     >
-      <ArkNumberInput.Label :class="LabelStyles">{{
-        name
-      }}</ArkNumberInput.Label>
+      <ArkNumberInput.Label :class="LabelStyles">
+        {{ name }}
+      </ArkNumberInput.Label>
       <div :class="InputContainerStyles">
         <ArkNumberInput.Input :class="InputStyles" />
         <ArkNumberInput.Control :class="ControlStyles">

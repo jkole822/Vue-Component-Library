@@ -15,7 +15,7 @@ import type { Props } from "./types";
 const props = defineProps<Props>();
 
 // State
-const value = ref<string>("");
+const value = ref("1");
 </script>
 
 <template>

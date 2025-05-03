@@ -48,7 +48,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
   >
     <ArkCheckbox.Root
       v-bind="rest"
-      @update:checked="($event) => $emit('update:checked', $event)"
+      @update:checked="$emit('update:checked', $event)"
       :class="InputStyles"
       :data-invalid="validationState === ValidationStateEnum.Invalid"
       :disabled="disabled"

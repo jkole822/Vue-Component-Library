@@ -92,8 +92,9 @@ w-full
 
 data-disabled:cursor-not-allowed
 data-disabled:ring-neutral-secondary-600
+data-disabled:text-neutral-secondary-600
 
-in-data-[invalid=true]:ring-red-500
+in-data-invalid:ring-red-500
 
 data-placeholder:[&_span:first-child]:opacity-50
 
