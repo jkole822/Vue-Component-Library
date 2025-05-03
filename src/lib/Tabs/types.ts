@@ -32,10 +32,12 @@ export interface Props {
   composite?: boolean;
   defaultValue?: string;
   deselectable?: boolean;
+  id?: string;
   items: TabItem[];
   lazyMount?: boolean;
   loopFocus?: boolean;
   modelValue?: string;
+  navigate?: (details: any) => void;
   orientation?: TabsOrientation;
   unmountOnExit?: boolean;
 }

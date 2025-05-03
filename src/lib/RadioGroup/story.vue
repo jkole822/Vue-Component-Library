@@ -15,15 +15,11 @@ import type { Props } from "./types";
 const props = defineProps<Props>();
 
 // State
-const value = ref<string | null>(null);
+const value = ref<string | undefined>();
 </script>
 
 <template>
-  <RadioGroup
-    v-bind="props"
-    :onValueChange="(details) => (value = details.value)"
-    :value="value ?? ''"
-  />
+  <RadioGroup v-bind="props" v-model="value" />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">{{ value }}</p>
 </template>

@@ -1,5 +1,18 @@
 import type { ValidationState } from "../../types";
 
+export enum NumberInputModeEnum {
+  Decimal = "decimal",
+  Number = "numeric",
+  Phone = "tel",
+  Text = "text",
+}
+
+export type NumberInputMode =
+  | NumberInputModeEnum.Decimal
+  | NumberInputModeEnum.Number
+  | NumberInputModeEnum.Phone
+  | NumberInputModeEnum.Text;
+
 export interface Props {
   allowMouseWheel?: boolean;
   allowOverflow?: boolean;
@@ -11,7 +24,9 @@ export interface Props {
   errorMessage?: string;
   focusInputOnChange?: boolean;
   form?: string;
+  formatOptions?: Intl.NumberFormatOptions;
   id?: string;
+  inputMode?: NumberInputMode;
   locale?: string;
   max?: number;
   min?: number;

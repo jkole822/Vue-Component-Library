@@ -55,16 +55,17 @@ onMounted(() => {
   const ids = items.map((item) => item.id);
   const hasDuplicates = ids.length !== new Set(ids).size;
   if (hasDuplicates) {
-    console.warn("Duplicate item IDs detected in accordion items.");
+    console.warn("Duplicate item IDs detected in carousel items.");
   }
 });
 </script>
 
 <template>
-  <div :class="[className, ContainerStyles]">
+  <div aria-roledescription="carousel" :class="[className, ContainerStyles]">
     <div :class="CarouselStyles">
       <div
         v-for="({ cta, description, image, title }, index) in cards"
+        :aria-hidden="index !== 1"
         :class="CardStyles"
         :key="title"
         :style="{
@@ -89,6 +90,7 @@ onMounted(() => {
         @click="handlePrevious"
         :class="ButtonStyles"
         :variant="ButtonVariantsEnum.fill"
+        aria-label="Next slide"
       >
         <i aria-hidden="true" :class="ButtonIconStyles"></i>
       </Button>
@@ -96,6 +98,7 @@ onMounted(() => {
         @click="handleNext"
         :class="ButtonStyles"
         :variant="ButtonVariantsEnum.fill"
+        aria-label="Next slide"
       >
         <i aria-hidden="true" :class="[ButtonIconStyles, 'rotate-180']"></i>
       </Button>

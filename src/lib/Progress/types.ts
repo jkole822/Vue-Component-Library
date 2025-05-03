@@ -12,8 +12,8 @@ export interface Props {
   label: string;
   max?: number;
   min?: number;
+  modelValue: number;
   size?: number;
   thickness?: number;
-  value: number;
   variant?: ProgressVariant;
 }

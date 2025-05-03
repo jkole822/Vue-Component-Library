@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // Packages
 import { Tabs as ArkTabs } from "@ark-ui/vue";
-import { ref } from "vue";
 
 // Styles
 import {

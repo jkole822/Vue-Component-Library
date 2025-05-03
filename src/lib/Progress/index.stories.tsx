@@ -14,8 +14,13 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     className: { control: "text" },
+    modelValue: { table: { disable: true } },
     size: { control: "number" },
     thickness: { control: "number" },
+    variant: {
+      control: "select",
+      options: [ProgressVariantEnum.Linear, ProgressVariantEnum.Circular],
+    },
   },
 } satisfies Meta<typeof Progress>;
 
@@ -26,7 +31,7 @@ const args = {
   label: faker.lorem.word(),
   min: 0,
   max: 100,
-  value: 0,
+  modelValue: 0,
 };
 
 export const Linear: Story = {

@@ -1,18 +1,26 @@
-// Packages
-import { Pagination as ArkPagination } from "@ark-ui/vue/pagination";
-
 // Components
 import Pagination from "./story.vue";
 
 // Types
 import type { Meta, StoryObj } from "@storybook/vue3";
+import { PaginationTypeEnum } from "./types.ts";
 
 const meta = {
   title: "Pagination",
   component: Pagination,
   tags: ["autodocs"],
   argTypes: {
+    asChild: { control: "boolean" },
     className: { control: "text" },
+    defaultPage: { control: "number" },
+    defaultPageSize: { control: "number" },
+    id: { control: "text" },
+    page: { table: { disable: true } },
+    pageSize: { table: { disable: true } },
+    type: {
+      control: "select",
+      options: [PaginationTypeEnum.Button, PaginationTypeEnum.Link],
+    },
   },
 } satisfies Meta<typeof Pagination>;
 
@@ -23,12 +31,6 @@ const args = {
   count: 100,
   hideNextButton: false,
   hidePreviousButton: false,
-  onPageChange: (details: ArkPagination.PageChangeDetails) => {
-    console.log("Page Change: ", details);
-  },
-  onPageSizeChange: (details: ArkPagination.PageSizeChangeDetails) => {
-    console.log("Page Size Change: ", details);
-  },
   page: 1,
   pageSize: 10,
   siblingCount: 1,

@@ -1,6 +1,5 @@
 // Packages
 import { faker } from "@faker-js/faker";
-import { v4 as uuid } from "uuid";
 
 // Components
 import Input from "./story.vue";
@@ -28,6 +27,8 @@ const meta = {
         AutoCompleteEnum.username,
       ],
     },
+    id: { control: "text" },
+    modelValue: { table: { disable: true } },
     type: {
       control: {
         type: "select",
@@ -53,7 +54,6 @@ const args = {
   autoComplete: AutoCompleteEnum.off,
   description: faker.lorem.sentence(),
   errorMessage: faker.lorem.sentence(),
-  id: uuid(),
   name: faker.lorem.word(),
   readOnly: false,
   required: true,

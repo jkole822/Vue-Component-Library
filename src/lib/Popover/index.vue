@@ -26,7 +26,12 @@ const {
 <template>
   <ArkPopover.Root
     v-bind="rest"
-    @update:open="(open) => $emit('update:open', open)"
+    @escapeKeyDown="$emit('escapeKeyDown', $event)"
+    @focusOutside="$emit('focusOutside', $event)"
+    @interactOutside="$emit('interactOutside', $event)"
+    @openChange="$emit('openChange', $event)"
+    @pointerDownOutside="$emit('pointerDownOutside', $event)"
+    @update:open="$emit('update:open', $event)"
   >
     <ArkPopover.Trigger asChild>
       <slot name="trigger"></slot>

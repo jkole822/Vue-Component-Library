@@ -12,7 +12,10 @@ const meta = {
   title: "Carousel",
   component: Carousel,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    className: { control: "boolean" },
+    items: { table: { disable: true } },
+  },
 } satisfies Meta<typeof Carousel>;
 
 export default meta;

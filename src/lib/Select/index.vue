@@ -42,7 +42,7 @@ const {
 
 // Emits
 const $emit = defineEmits<{
-  (e: "change", value: ArkSelect.ValueChangeDetails): void;
+  (e: "update:modelValue", value: string[]): void;
 }>();
 
 // State
@@ -63,7 +63,7 @@ const select = useSelect({
   collection: collection.value,
   disabled,
   name,
-  onValueChange: (value) => $emit("change", value),
+  onValueChange: (details) => $emit("update:modelValue", details.value),
 });
 </script>
 

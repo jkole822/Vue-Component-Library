@@ -381,9 +381,10 @@ onUnmounted(() => {
       </div>
     </div>
     <Popover
-      @update:open="(open) => (mobileNavigationOpen = open)"
+      @update:open="mobileNavigationOpen = $event"
       :contentClass="MobilePopoverContentStyles"
       :contentStyles="contentStyles"
+      :open="mobileNavigationOpen"
     >
       <template v-slot:trigger>
         <button :class="MobilePopoverStyles">

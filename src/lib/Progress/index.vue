@@ -22,14 +22,17 @@ const {
   label,
   size = 100,
   thickness = 10,
-  value,
   variant = ProgressVariantEnum.Linear,
   ...rest
 } = defineProps<Props>();
 </script>
 
 <template>
-  <ArkProgress.Root v-bind="rest" :class="className" :modelValue="value">
+  <ArkProgress.Root
+    v-bind="rest"
+    @update:value="$emit('update:value', $event)"
+    :class="className"
+  >
     <ArkProgress.Label :class="LabelStyles">{{ label }}</ArkProgress.Label>
     <div v-if="variant === ProgressVariantEnum.Circular" class="relative w-fit">
       <ArkProgress.ValueText :class="CircularValueTextStyles" />

@@ -22,5 +22,5 @@ export interface Props {
   role?: DialogRole;
   title?: string;
   trapFocus?: boolean;
-  unmountUnExited?: boolean;
+  unmountOnExit?: boolean;
 }

@@ -17,6 +17,13 @@ const meta = {
         TabsActivationModeEnum.Manual,
       ],
     },
+    asChild: { control: "boolean" },
+    composite: { control: "boolean" },
+    defaultValue: { control: "text" },
+    deselectable: { control: "boolean" },
+    id: { control: "text" },
+    items: { table: { disable: true } },
+    modelValue: { table: { disable: true } },
     orientation: {
       control: "select",
       options: [TabsOrientationEnum.Horizontal, TabsOrientationEnum.Vertical],
@@ -29,9 +36,10 @@ type Story = StoryObj<typeof meta>;
 
 const args = {
   activationMode: TabsActivationModeEnum.Automatic,
-  disabled: false,
-  items: [],
+  lazyMount: false,
+  loopFocus: true,
   orientation: TabsOrientationEnum.Horizontal,
+  unmountOnExit: false
 };
 
 export const Horizontal: Story = {

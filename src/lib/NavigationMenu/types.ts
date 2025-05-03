@@ -14,7 +14,6 @@ export interface NavigationMenuItem {
   disabled?: boolean;
   href: string;
   image?: ImageProps;
-  textValue?: string;
   title: string;
 }
 

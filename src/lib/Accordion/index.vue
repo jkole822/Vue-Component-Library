@@ -18,7 +18,13 @@ import {
 import type { Props } from "./types";
 
 // Props
-const { className = "", headingLevel, items, ...rest } = defineProps<Props>();
+const {
+  className = "",
+  headingLevel,
+  items,
+  modelValue,
+  ...rest
+} = defineProps<Props>();
 
 // Computed
 const headingLevelElement = computed(() => headingLevel);
@@ -34,7 +40,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <ArkAccordion.Root v-bind="rest" :class="[className, ContainerStyles]">
+  <ArkAccordion.Root
+    v-bind="rest"
+    @update:modelValue="$emit('update:modelValue', $event)"
+    :class="[className, ContainerStyles]"
+  >
     <ArkAccordion.Item
       v-for="item in items"
       :class="SectionStyles"

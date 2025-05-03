@@ -16,15 +16,10 @@ const props = defineProps<Props>();
 
 // State
 const checked = ref(false);
-
-// Helpers
-const handleChange = (value: boolean) => {
-  checked.value = value;
-};
 </script>
 
 <template>
-  <Checkbox v-bind="props" @update:checked="handleChange" :value="checked" />
+  <Checkbox v-bind="props" v-model:checked="checked" />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">{{ checked ? "Checked" : "Not Checked" }}</p>
 </template>

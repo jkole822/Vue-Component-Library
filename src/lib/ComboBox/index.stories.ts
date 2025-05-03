@@ -18,7 +18,16 @@ const meta = {
   component: ComboBox,
   tags: ["autodocs"],
   argTypes: {
+    allowCustomValue: { control: "boolean" },
+    asChild: { control: "boolean" },
     className: { control: "text" },
+    closeOnSelect: { control: "boolean" },
+    defaultHighlightedValue: { control: "text" },
+    defaultInputValue: { control: "text" },
+    defaultOpen: { control: "boolean" },
+    disabled: { control: "boolean" },
+    disableLayer: { control: "boolean" },
+    form: { control: "text" },
     inputBehavior: {
       control: "select",
       options: [
@@ -27,6 +36,11 @@ const meta = {
         ComboBoxInputBehaviorEnum.AutoComplete,
       ],
     },
+    inputValue: { control: "text" },
+    items: { table: { disable: true } },
+    openOnChange: { control: "boolean" },
+    openOnClick: { control: "boolean" },
+    openOnKeyPress: { control: "boolean" },
     selectionBehavior: {
       control: "select",
       options: [
@@ -54,11 +68,17 @@ const generateItems = (length: number) =>
   }));
 
 const args = {
+  composite: false,
   items: generateItems(10),
   name: faker.lorem.word(),
   open: undefined,
   openOnChange: true,
+  lazyMount: false,
+  loopFocus: true,
   placeholder: faker.lorem.words(2),
+  readOnly: false,
+  required: false,
+  unmountOnExit: false,
 };
 
 export const Single: Story = {

@@ -49,17 +49,35 @@ const tabThree = {
 
 const items = [
   {
-    content: h(TabContent, { ...tabOne, value: valueOne.value }),
+    content: h(TabContent, {
+      buttonText: tabOne.buttonText,
+      description: tabOne.description,
+      label: tabOne.label,
+      onValueChange: tabOne.onValueChange,
+    }),
+    disabled: false,
     id: tabOne.id,
     label: tabOne.label,
   },
   {
-    content: h(TabContent, { ...tabTwo, value: valueTwo.value }),
+    content: h(TabContent, {
+      buttonText: tabTwo.buttonText,
+      description: tabTwo.description,
+      label: tabTwo.label,
+      onValueChange: tabTwo.onValueChange,
+    }),
+    disabled: false,
     id: tabTwo.id,
     label: tabTwo.label,
   },
   {
-    content: h(TabContent, { ...tabThree, value: valueThree.value }),
+    content: h(TabContent, {
+      buttonText: tabThree.buttonText,
+      description: tabThree.description,
+      label: tabThree.label,
+      onValueChange: tabThree.onValueChange,
+    }),
+    disabled: false,
     id: tabThree.id,
     label: tabThree.label,
   },
@@ -70,12 +88,7 @@ const activeTab = ref(tabOne.id);
 </script>
 
 <template>
-  <Tabs
-    v-bind="props"
-    @update:modelValue="activeTab = $event"
-    :items="items"
-    :modelValue="activeTab"
-  />
+  <Tabs v-bind="props" v-model="activeTab" :items="items" />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">Value One: {{ valueOne }}</p>
   <p :class="ParagraphStyles">Value Two: {{ valueTwo }}</p>

@@ -14,8 +14,14 @@ const meta = {
   component: Select,
   tags: ["autodocs"],
   argTypes: {
+    asChild: { control: "boolean" },
     className: { control: "text" },
+    defaultHighlightedValue: { control: "text" },
+    defaultOpen: { control: "boolean" },
     form: { control: "text" },
+    highlightedValue: { control: "text" },
+    options: { table: { disable: true } },
+    positioning: { control: "object" },
     validationState: {
       control: "select",
       options: [ValidationStateEnum.Valid, ValidationStateEnum.Invalid],

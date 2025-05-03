@@ -10,6 +10,7 @@ export interface AccordionItem {
 }
 
 export interface Props {
+  asChild?: boolean;
   className?: string;
   collapsible?: boolean;
   defaultValue?: string[];
@@ -19,5 +20,5 @@ export interface Props {
   lazyMount?: boolean;
   modelValue?: string[];
   multiple?: boolean;
-  unMountOnExit?: boolean;
+  unmountOnExit?: boolean;
 }

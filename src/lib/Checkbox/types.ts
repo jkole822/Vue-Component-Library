@@ -1,7 +1,10 @@
 import type { ValidationState } from "../../types";
 
 export interface Props {
+  asChild?: boolean;
   className?: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
   description?: string;
   disabled?: boolean;
   errorMessage?: string;
@@ -10,6 +13,6 @@ export interface Props {
   readOnly?: boolean;
   required?: boolean;
   validationState?: ValidationState;
-  value?: boolean;
+  value?: string;
   withField?: boolean;
 }

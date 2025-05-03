@@ -1,4 +1,3 @@
-import type { RadioGroupValueChangeDetails } from "@ark-ui/vue";
 import type { ValidationState } from "../../types";
 
 export enum RadioGroupOrientationEnum {
@@ -11,18 +10,20 @@ export type RadioGroupOrientation =
   | RadioGroupOrientationEnum.Vertical;
 
 export interface Props {
+  asChild?: boolean;
   className?: string;
+  defaultValue?: string;
   description?: string;
   disabled?: boolean;
   errorMessage?: string;
   form?: string;
+  id?: string;
   items: string[];
-  name: string;
-  onValueChange: (details: RadioGroupValueChangeDetails) => void;
+  modelValue?: string;
+  name?: string;
   orientation?: RadioGroupOrientation;
   readOnly?: boolean;
   required?: boolean;
   validationState?: ValidationState;
-  value: string;
   withField?: boolean;
 }

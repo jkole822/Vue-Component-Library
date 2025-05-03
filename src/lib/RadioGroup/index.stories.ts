@@ -14,8 +14,13 @@ const meta = {
   component: RadioGroup,
   tags: ["autodocs"],
   argTypes: {
+    asChild: { control: "boolean" },
     className: { control: "text" },
+    defaultValue: { control: "text" },
     form: { control: "text" },
+    id: { control: "text" },
+    items: { table: { disable: true } },
+    modelValue: { table: { disable: true } },
     orientation: {
       control: "select",
       options: [
@@ -41,12 +46,10 @@ const args = {
   errorMessage: faker.lorem.sentence(),
   items,
   name: faker.lorem.word(),
-  onValueChange: () => {},
   orientation: RadioGroupOrientationEnum.Vertical,
   readOnly: false,
   required: true,
   validationState: ValidationStateEnum.Valid,
-  value: "",
 };
 
 export const Vertical: Story = {

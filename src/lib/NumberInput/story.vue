@@ -19,11 +19,7 @@ const value = ref("1");
 </script>
 
 <template>
-  <NumberInput
-    v-bind="props"
-    @update:value="(newValue) => (value = newValue)"
-    :modelValue="value"
-  />
+  <NumberInput v-bind="props" v-model="value" />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">{{ value }}</p>
 </template>

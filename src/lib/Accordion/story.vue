@@ -3,7 +3,7 @@
 import { ref } from "vue";
 
 // Components
-import Pagination from "./index.vue";
+import Accordion from "./index.vue";
 
 // Styles
 import { ParagraphStyles, SubHeadingStyles } from "../../styles";
@@ -15,11 +15,11 @@ import type { Props } from "./types";
 const props = defineProps<Props>();
 
 // State
-const page = ref(1);
+const value = ref<string[] | undefined>();
 </script>
 
 <template>
-  <Pagination v-bind="props" v-model:page="page" />
+  <Accordion v-bind="props" v-model="value" />
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="ParagraphStyles">{{ page }}</p>
+  <p :class="ParagraphStyles">{{ value }}</p>
 </template>

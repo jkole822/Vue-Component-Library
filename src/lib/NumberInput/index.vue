@@ -47,7 +47,7 @@ const element = computed(() => {
   >
     <ArkNumberInput.Root
       v-bind="rest"
-      @update:modelValue="$emit('update:value', $event)"
+      @update:modelValue="$emit('update:modelValue', $event)"
       :disabled="disabled"
     >
       <ArkNumberInput.Label :class="LabelStyles">

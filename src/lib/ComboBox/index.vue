@@ -47,7 +47,7 @@ const {
 
 // Emits
 const $emit = defineEmits<{
-  (e: "change", value: ArkComboBox.ValueChangeDetails): void;
+  (e: "update:modelValue", value: string[]): void;
 }>();
 
 // State
@@ -76,7 +76,7 @@ const combobox = useCombobox({
   multiple,
   name,
   onInputValueChange: handleInputChange,
-  onValueChange: (value) => $emit("change", value),
+  onValueChange: (details) => $emit("update:modelValue", details.value),
 });
 
 const handleRemoveItem = (value: string) => {
@@ -125,7 +125,10 @@ const handleRemoveItem = (value: string) => {
         <ArkComboBox.Trigger :class="TriggerStyles" :disabled="disabled">
           <i aria-hidden="true" class="fa-solid fa-sort"></i>
         </ArkComboBox.Trigger>
-        <ArkComboBox.ClearTrigger :class="ClearTriggerStyles" :disabled="disabled">
+        <ArkComboBox.ClearTrigger
+          :class="ClearTriggerStyles"
+          :disabled="disabled"
+        >
           <i aria-hidden="true" :class="ClearTriggerIconStyles"></i>
         </ArkComboBox.ClearTrigger>
       </ArkComboBox.Control>

@@ -28,7 +28,6 @@ const {
   readOnly,
   required,
   validationState,
-  value,
   withField,
   ...rest
 } = defineProps<Props>();
@@ -50,9 +49,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
       v-bind="rest"
       @update:checked="$emit('update:checked', $event)"
       :class="InputStyles"
-      :data-invalid="validationState === ValidationStateEnum.Invalid"
       :disabled="disabled"
-      :value="value ? 'on' : 'off'"
     >
       <svg :class="VectorStyles" viewBox="0 0 64 64" height="2em" width="2em">
         <path

@@ -11,7 +11,16 @@ const meta = {
   title: "Popover",
   component: Popover,
   tags: ["autodocs"],
-  argTypes: {},
+  argTypes: {
+    contentClass: { control: "text" },
+    contentStyles: { control: "object" },
+    defaultOpen: { control: "boolean" },
+    id: { control: "text" },
+    initialFocusEl: { table: { disable: true } },
+    open: { table: { disable: true } },
+    persistentElements: { table: { disable: true } },
+    positioning: { control: "object" },
+  },
 } satisfies Meta<typeof Popover>;
 
 export default meta;

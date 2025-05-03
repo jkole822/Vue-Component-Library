@@ -19,11 +19,7 @@ const value = ref("");
 </script>
 
 <template>
-  <Input
-    v-bind="props"
-    @update:value="(event) => (value = event.target.value)"
-    :modelValue="value"
-  />
+  <Input v-bind="props" v-model="value" />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">{{ value }}</p>
 </template>

@@ -20,34 +20,34 @@ import type { Props } from "./types";
 const props = defineProps<Props>();
 
 // State
-const isOpen = ref(false);
+const open = ref(false);
 const value = ref("");
 
+// Constants
 const id = uuid();
 </script>
 
 <template>
-  <Popover v-bind="props" @update:open="(open) => (isOpen = open)">
+  <Popover v-bind="props" v-model:open="open">
     <template v-slot:trigger>
       <Button
-        class="rounded-full! p-0! size-15!"
+        className="rounded-full! p-0! size-15!"
         :variant="ButtonVariantsEnum.outline"
       >
         <i aria-hidden="true" class="fa-solid fa-ghost text-2xl"></i>
       </Button>
     </template>
     <Input
-      @update:value="(event) => (value = event.target.value)"
+      v-model="value"
       :autoComplete="AutoCompleteEnum.name"
-      className="[&_.input-input_~_label]:bg-neutral-secondary-900! mt-8"
       :id="id"
+      className="[&_.input-input_~_label]:bg-neutral-secondary-900! mt-8"
       name="Lorem"
       required
-      :modelValue="value"
     />
   </Popover>
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">{{ value }}</p>
   <p :class="SubHeadingStyles">Open Check</p>
-  <p :class="ParagraphStyles">{{ isOpen ? "Open" : "Closed" }}</p>
+  <p :class="ParagraphStyles">{{ open ? "Open" : "Closed" }}</p>
 </template>

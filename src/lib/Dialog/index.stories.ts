@@ -13,6 +13,9 @@ const meta = {
   component: Dialog,
   tags: ["autodocs"],
   argTypes: {
+    "aria-label": { control: "text" },
+    id: { control: "text" },
+    open: { table: { disabled: true } },
     role: {
       control: "select",
       options: [DialogRoleEnum.Alert, DialogRoleEnum.Dialog],
@@ -35,5 +38,6 @@ export const Basic: Story = {
     role: DialogRoleEnum.Dialog,
     title: faker.lorem.words(2),
     trapFocus: true,
+    unmountOnExit: false,
   },
 };

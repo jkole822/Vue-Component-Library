@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Packages
-import { computed, ref, watch } from "vue";
+import { computed } from "vue";
 import { Field } from "@ark-ui/vue/field";
 import { RadioGroup as ArkRadioGroup } from "@ark-ui/vue/radio-group";
 
@@ -29,18 +29,15 @@ const {
   disabled,
   errorMessage,
   items,
+  modelValue,
   name,
   orientation = RadioGroupOrientationEnum.Vertical,
   readOnly,
   required,
   validationState,
-  value,
   withField,
   ...rest
 } = defineProps<Props>();
-
-// State
-const valueIndex = ref<number | undefined>(undefined);
 
 const distance = (orientation: RadioGroupOrientation) =>
   orientation === orientation ? `${100 / items.length}%` : "100%";
@@ -50,15 +47,7 @@ const element = computed(() => {
   return withField ? Field.Root : "div";
 });
 
-// Watchers
-watch(
-  () => value,
-  (newValue) => {
-    if (newValue) {
-      valueIndex.value = items.findIndex((item) => item === newValue);
-    }
-  }
-);
+const valueIndex = computed(() => items.findIndex((item) => item === modelValue));
 </script>
 
 <template>
@@ -72,12 +61,13 @@ watch(
   >
     <ArkRadioGroup.Root
       v-bind="rest"
+      @update:modelValue="$emit('update:modelValue', $event)"
       :class="ContainerStyles"
       :disabled="disabled"
+      :modelValue="modelValue"
       :name="name"
       :orientation="orientation"
       :readOnly="readOnly"
-      :value="value"
     >
       <ArkRadioGroup.Label v-if="withField" :class="LabelStyles">
         {{ name }}
@@ -106,7 +96,7 @@ watch(
         </div>
         <div :class="GliderContainerStyles">
           <div
-            v-if="value"
+            v-if="modelValue"
             :class="GliderStyles"
             :style="{
               height: distance(RadioGroupOrientationEnum.Vertical),

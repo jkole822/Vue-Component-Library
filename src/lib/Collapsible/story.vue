@@ -19,25 +19,27 @@ const props = defineProps<Props>();
 // State
 const open = ref(false);
 
-// Helpers
-const handleOpen = (value: boolean) => {
-  open.value = value;
-};
+// Constants
+const text = [
+  faker.lorem.sentence(),
+  faker.lorem.sentence(),
+  faker.lorem.sentence(),
+];
 </script>
 
 <template>
-  <Collapsible v-bind="props" @update:open="handleOpen" :open="open">
+  <Collapsible v-bind="props" v-model:open="open">
     <template v-slot:trigger>
       <div>
         <span class="mr-2">Button</span>
         <i aria-hidden="true" :class="IconStyles"></i>
       </div>
     </template>
-    <span>{{ faker.lorem.words(3) }}</span>
+    <span>{{ text[0] }}</span>
     <hr class="border-b-px border-neutral-secondary-700" />
-    <span>{{ faker.lorem.words(2) }}</span>
+    <span>{{ text[1] }}</span>
     <hr class="border-b-px border-neutral-secondary-700" />
-    <span>{{ faker.lorem.words(4) }}</span>
+    <span>{{ text[2] }}</span>
   </Collapsible>
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">{{ open ? "Open" : "Closed" }}</p>

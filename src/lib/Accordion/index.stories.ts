@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 import { h } from "vue";
 
 // Components
-import Accordion from "./index.vue";
+import Accordion from "./story.vue";
 
 // Styles
 import { IconStyles } from "../../styles";
@@ -17,6 +17,7 @@ const meta = {
   component: Accordion,
   tags: ["autodocs"],
   argTypes: {
+    asChild: { control: "boolean" },
     className: { control: "text" },
     headingLevel: {
       control: {
@@ -31,6 +32,8 @@ const meta = {
         HeadingLevelEnum.Six,
       ],
     },
+    items: { table: { disable: true } },
+    modelValue: { table: { disable: true } },
   },
 } satisfies Meta<typeof Accordion>;
 
@@ -51,38 +54,37 @@ const generateItems = (length: number) =>
     title: faker.lorem.words(3),
   }));
 
+const args = {
+  collapsible: false,
+  disabled: false,
+  headingLevel: HeadingLevelEnum.Three,
+  items: generateItems(5),
+  lazyMount: false,
+  unmountOnExit: false,
+};
+
 export const Single: Story = {
-  args: {
-    collapsible: false,
-    headingLevel: HeadingLevelEnum.Three,
-    items: generateItems(5),
-  },
+  args,
 };
 
 export const SingleWithDefault: Story = {
   args: {
-    collapsible: false,
+    ...args,
     defaultValue: ["item-1"],
-    headingLevel: HeadingLevelEnum.Three,
-    items: generateItems(5),
   },
 };
 
 export const Multiple: Story = {
   args: {
-    collapsible: false,
-    headingLevel: HeadingLevelEnum.Three,
-    items: generateItems(5),
+    ...args,
     multiple: true,
   },
 };
 
 export const MultipleWithDefault: Story = {
   args: {
-    collapsible: false,
+    ...args,
     defaultValue: ["item-1", "item-2"],
-    headingLevel: HeadingLevelEnum.Three,
-    items: generateItems(5),
     multiple: true,
   },
 };

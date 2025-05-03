@@ -33,14 +33,16 @@ const toggleValidationState = () => {
 <template>
   <ComboBox
     v-bind="rest"
-    @change="(update) => (value = update.value)"
+    v-model="value"
     :validationState="validationState"
     :withField="withField"
   />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">Selected Item IDs:</p>
   <div class="flex flex-col gap-0.5 mt-1 text-sm">
-    <span v-for="id in value" :key="id">{{ id }}</span>
+    <span v-for="id in value" :key="id">{{
+      items.find((item) => item.id === id)?.label ?? ""
+    }}</span>
   </div>
   <Button v-if="withField" @click="toggleValidationState" className="mt-10"
     >Toggle Validation State</Button

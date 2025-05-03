@@ -6,11 +6,13 @@ export interface Props {
   closeOnInteractOutside?: boolean;
   contentClass?: string;
   contentStyles?: StyleValue;
+  defaultOpen?: boolean;
   description?: string;
   id?: string;
   initialFocusEl?: () => HTMLElement | null;
   lazyMount?: boolean;
   modal?: boolean;
+  open?: boolean;
   persistentElements?: (() => Element | null)[];
   portalled?: boolean;
   positioning?: any;

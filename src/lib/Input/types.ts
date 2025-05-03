@@ -36,8 +36,10 @@ export interface Props {
   description?: string;
   disabled?: boolean;
   errorMessage?: string;
+  id?: string;
   modelValue?: string;
   name?: string;
+  raiseLabel?: boolean;
   readOnly?: boolean;
   required?: boolean;
   type?: InputType;

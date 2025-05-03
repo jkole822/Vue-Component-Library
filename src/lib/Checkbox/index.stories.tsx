@@ -13,11 +13,14 @@ const meta = {
   component: Checkbox,
   tags: ["autodocs"],
   argTypes: {
+    asChild: { control: "boolean" },
+    checked: { table: { disable: true } },
     className: { control: "text" },
     validationState: {
       control: "select",
       options: [ValidationStateEnum.Valid, ValidationStateEnum.Invalid],
     },
+    value: { control: "text" },
   },
 } satisfies Meta<typeof Checkbox>;
 

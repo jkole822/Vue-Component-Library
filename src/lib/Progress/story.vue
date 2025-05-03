@@ -34,5 +34,5 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Progress v-bind="props" :value="value"></Progress>
+  <Progress v-bind="props" v-model="value"></Progress>
 </template>

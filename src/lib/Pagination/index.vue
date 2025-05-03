@@ -20,8 +20,8 @@ const {
 <template>
   <ArkPagination.Root
     v-bind="rest"
-    @update:page="(page) => $emit('update:page', page)"
-    @update:page-size="(pageSize) => $emit('update:pageSize', pageSize)"
+    @update:page="$emit('update:page', $event)"
+    @update:pageSize="$emit('update:pageSize', $event)"
     :class="[className, ContainerStyles]"
   >
     <ArkPagination.PrevTrigger v-if="!hidePreviousButton" :class="ButtonStyles">

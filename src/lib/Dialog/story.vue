@@ -38,23 +38,18 @@ const handleOpen = () => {
     </template>
     <div className="border-t-2 border-neutral-secondary-700">
       <Input
-        @update:value="(event) => (name = event.target.value)"
+        v-model="name"
         :autoComplete="AutoCompleteEnum.name"
-        className="mb-7 mt-5"
-        id="name"
-        inputClass="[&_~_label]:bg-neutral-secondary-900!"
+        className="[&_.input-input_~_label]:bg-neutral-secondary-900! mb-7 mt-5"
         name="Name"
         required
-        :value="name"
       />
       <Input
-        @update:value="(event) => (username = event.target.value)"
+        v-model="username"
         :autoComplete="AutoCompleteEnum.username"
-        id="username"
-        inputClass="[&_~_label]:bg-neutral-secondary-900!"
+        className="[&_.input-input_~_label]:bg-neutral-secondary-900!"
         name="Username"
         required
-        :value="username"
       />
     </div>
   </Dialog>

@@ -62,17 +62,12 @@ const generateMenuItems = (length: number) =>
 const args = {
   className:
     "bg-neutral-secondary-950 flex fixed items-center justify-between p-4 w-screen",
-  delayDuration: 100,
-  focusOnAlt: true,
-  forceMount: false,
   homeHref: "#",
   icon: {
     alt: faker.lorem.words(3),
     src: faker.image.url({ height: 80, width: 80 }),
   },
   items: generateMenuItems(5),
-  loop: true,
-  skipDelayDuration: 200,
   title: faker.lorem.word(),
 };
 

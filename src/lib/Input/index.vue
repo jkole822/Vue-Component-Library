@@ -19,6 +19,7 @@ const {
   errorMessage,
   modelValue,
   name,
+  raiseLabel,
   type = InputTypeEnum.text,
   validationState = ValidationStateEnum.Valid,
   ...rest
@@ -32,10 +33,10 @@ const {
     :invalid="validationState === ValidationStateEnum.Invalid"
   >
     <Field.Input
-      @input="$emit('update:value', $event)"
+      @input="$emit('update:modelValue', $event.target?.value)"
       :auto-complete="autoComplete"
       :class="InputStyles"
-      :data-has-value="!!modelValue"
+      :data-has-value="!!modelValue || raiseLabel"
       :modelValue="modelValue"
       :type="type"
     />
