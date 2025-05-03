@@ -55,7 +55,6 @@ const args = {
   errorMessage: faker.lorem.sentence(),
   id: uuid(),
   name: faker.lorem.word(),
-  placeholder: faker.lorem.words(2),
   readOnly: false,
   required: true,
   type: InputTypeEnum.text,
@@ -76,8 +75,6 @@ export const PasswordField: Story = {
   args: {
     ...args,
     autoComplete: AutoCompleteEnum.newPassword,
-    minLength: 8,
-    maxLength: 16,
     type: InputTypeEnum.password,
   },
 };

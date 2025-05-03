@@ -57,7 +57,7 @@ const items = ref(initialItems);
 const collection = computed(() =>
   createListCollection({
     items: items.value.map((item) => ({ ...item, value: item.id })),
-  })
+  }),
 );
 
 const element = computed(() => (withField ? Field.Root : "div"));
@@ -65,7 +65,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
 // Helpers
 const handleInputChange = (details: ArkComboBox.InputValueChangeDetails) => {
   items.value = initialItems.filter((item) =>
-    item.label.toLowerCase().includes(details.inputValue.toLowerCase())
+    item.label.toLowerCase().includes(details.inputValue.toLowerCase()),
   );
 };
 
@@ -83,7 +83,7 @@ const handleRemoveItem = (value: string) => {
   combobox.value.setValue(
     combobox.value.selectedItems
       .filter((selectedItem) => selectedItem.value !== value)
-      .map((item) => item.id)
+      .map((item) => item.id),
   );
 };
 </script>
@@ -98,7 +98,9 @@ const handleRemoveItem = (value: string) => {
     :required="required"
   >
     <ArkComboBox.RootProvider :value="combobox">
-      <ArkComboBox.Label :class="LabelStyles">{{ name }}</ArkComboBox.Label>
+      <ArkComboBox.Label v-if="withField" :class="LabelStyles">
+        {{ name }}
+      </ArkComboBox.Label>
       <ArkComboBox.Control :class="ControlStyles">
         <div
           v-if="multiple && combobox.selectedItems.length > 0"
@@ -119,11 +121,11 @@ const handleRemoveItem = (value: string) => {
             </button>
           </span>
         </div>
-        <ArkComboBox.Input :class="InputStyles" />
-        <ArkComboBox.Trigger :class="TriggerStyles">
+        <ArkComboBox.Input :class="InputStyles" :disabled="disabled" />
+        <ArkComboBox.Trigger :class="TriggerStyles" :disabled="disabled">
           <i aria-hidden="true" class="fa-solid fa-sort"></i>
         </ArkComboBox.Trigger>
-        <ArkComboBox.ClearTrigger :class="ClearTriggerStyles">
+        <ArkComboBox.ClearTrigger :class="ClearTriggerStyles" :disabled="disabled">
           <i aria-hidden="true" :class="ClearTriggerIconStyles"></i>
         </ArkComboBox.ClearTrigger>
       </ArkComboBox.Control>

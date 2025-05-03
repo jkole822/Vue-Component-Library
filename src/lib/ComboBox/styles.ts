@@ -24,11 +24,15 @@ size-5
 top-1/2
 transition-colors
 
+disabled:cursor-not-allowed
+disabled:ring-0!
+disabled:text-neutral-secondary-600!
+
 hover:ring-2
 hover:text-primary-400
 
-data-invalid:ring-red-200
-data-invalid:hover:text-red-400
+in-data-invalid:ring-red-200
+in-data-invalid:hover:text-red-400
 `;
 
 export const ContentStyles = oneLine`
@@ -54,12 +58,12 @@ rounded-lg
 transition-colors
 w-full
 
-data-disabled:cursor-not-allowed
-data-disabled:ring-neutral-secondary-600
+in-data-disabled:cursor-not-allowed
+in-data-disabled:ring-neutral-secondary-600!
 
 data-focus:ring-primary-500
 
-data-invalid:ring-red-500
+in-data-invalid:ring-red-500!
 `;
 
 export const ItemDescriptionStyles = oneLine`
@@ -91,6 +95,7 @@ outline-none
 w-[calc(100%-60px)]
 
 in-data-disabled:cursor-not-allowed
+in-data-disabled:text-neutral-secondary-600
 `;
 
 export const ItemStyles = oneLine`
@@ -185,9 +190,10 @@ right-4
 top-1/2
 transition-colors
 
+disabled:cursor-not-allowed
+disabled:text-neutral-secondary-600!
+
 hover:text-primary-400
 
-data-disabled:text-neutral-secondary-600
-
-data-invalid:hover:text-red-400
+in-data-invalid:hover:text-red-400
 `;

@@ -13,42 +13,40 @@ import type { Props } from "./types";
 
 // Props
 const {
+  autoComplete,
   className = "",
   description,
-  disabled,
   errorMessage,
-  inputClass = "",
+  modelValue,
   name,
-  readOnly,
-  required,
   type = InputTypeEnum.text,
   validationState = ValidationStateEnum.Valid,
-  value,
   ...rest
 } = defineProps<Props>();
 </script>
 
 <template>
   <Field.Root
+    v-bind="rest"
     :class="[className, ContainerStyles]"
-    :disabled="disabled"
     :invalid="validationState === ValidationStateEnum.Invalid"
-    :readOnly="readOnly"
-    :required="required"
   >
     <Field.Input
-      v-bind="rest"
       @input="$emit('update:value', $event)"
-      :class="[inputClass, InputStyles({ hasValue: !!value })]"
+      :auto-complete="autoComplete"
+      :class="InputStyles"
+      :data-has-value="!!modelValue"
+      :modelValue="modelValue"
       :type="type"
-      :value="value"
     />
     <Field.Label :class="LabelStyles">{{ name }}</Field.Label>
-    <Field.HelperText v-if="description" :class="DescriptionStyles">
-      {{ description }}
-    </Field.HelperText>
-    <Field.ErrorText v-if="errorMessage" :class="ErrorMessageStyles">
-      {{ description }}
-    </Field.ErrorText>
+    <div className="mt-2">
+      <Field.HelperText v-if="description" :class="DescriptionStyles">
+        {{ description }}
+      </Field.HelperText>
+      <Field.ErrorText v-if="errorMessage" :class="ErrorMessageStyles">
+        {{ description }}
+      </Field.ErrorText>
+    </div>
   </Field.Root>
 </template>

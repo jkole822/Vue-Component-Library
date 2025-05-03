@@ -22,7 +22,7 @@ const value = ref("");
   <Input
     v-bind="props"
     @update:value="(event) => (value = event.target.value)"
-    :value="value"
+    :modelValue="value"
   />
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="PararaphStyles">{{ value }}</p>
