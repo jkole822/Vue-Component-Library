@@ -45,6 +45,7 @@ export interface Props {
   disableLayer?: boolean;
   errorMessage?: string;
   form?: string;
+  highlightedValue?: string;
   id?: string;
   immediate?: boolean;
   items: ComboBoxItem[];

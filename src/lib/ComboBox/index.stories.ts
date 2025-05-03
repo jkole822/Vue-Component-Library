@@ -11,7 +11,6 @@ import {
   ComboBoxSelectionBehaviorEnum,
 } from "./types";
 import { ValidationStateEnum } from "../../types";
-import type { ValidationState } from "../../types";
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta = {
@@ -19,20 +18,21 @@ const meta = {
   component: ComboBox,
   tags: ["autodocs"],
   argTypes: {
-    selectionBehavior: {
-      control: "select",
-      options: [
-        ComboBoxSelectionBehaviorEnum.Replace,
-        ComboBoxSelectionBehaviorEnum.Clear,
-        ComboBoxSelectionBehaviorEnum.Preserve,
-      ],
-    },
+    className: { control: "text" },
     inputBehavior: {
       control: "select",
       options: [
         ComboBoxInputBehaviorEnum.None,
         ComboBoxInputBehaviorEnum.AutoHighlight,
         ComboBoxInputBehaviorEnum.AutoComplete,
+      ],
+    },
+    selectionBehavior: {
+      control: "select",
+      options: [
+        ComboBoxSelectionBehaviorEnum.Replace,
+        ComboBoxSelectionBehaviorEnum.Clear,
+        ComboBoxSelectionBehaviorEnum.Preserve,
       ],
     },
     validationState: {

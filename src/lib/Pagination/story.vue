@@ -12,7 +12,7 @@ import { PararaphStyles, SubHeadingStyles } from "../../styles";
 import type { Props } from "./types";
 
 // Props
-const { page: _, ...rest } = defineProps<Props>();
+const props = defineProps<Props>();
 
 // State
 const page = ref(1);
@@ -20,7 +20,7 @@ const page = ref(1);
 
 <template>
   <Pagination
-    v-bind="rest"
+    v-bind="props"
     @update:page="(update: number) => (page = update)"
     :page="page"
   />

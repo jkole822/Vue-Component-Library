@@ -12,7 +12,7 @@ import { PararaphStyles, SubHeadingStyles } from "../../styles";
 import type { Props } from "./types";
 
 // Props
-const { onValueChange, value: _, ...props } = defineProps<Props>();
+const props = defineProps<Props>();
 
 // State
 const value = ref<string | null>(null);
