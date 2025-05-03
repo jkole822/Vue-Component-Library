@@ -7,7 +7,7 @@ import Button from "../Button/index.vue";
 import ComboBox from "./index.vue";
 
 // Styles
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { ParagraphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import { ValidationStateEnum } from "../../types";
@@ -38,7 +38,7 @@ const toggleValidationState = () => {
     :withField="withField"
   />
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">Selected Item IDs:</p>
+  <p :class="ParagraphStyles">Selected Item IDs:</p>
   <div class="flex flex-col gap-0.5 mt-1 text-sm">
     <span v-for="id in value" :key="id">{{ id }}</span>
   </div>

@@ -8,7 +8,7 @@ import Collapsible from "./index.vue";
 
 // Styles
 import { IconStyles } from "../../styles";
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { ParagraphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import type { Props } from "./types";
@@ -40,5 +40,5 @@ const handleOpen = (value: boolean) => {
     <span>{{ faker.lorem.words(4) }}</span>
   </Collapsible>
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ open ? "Open" : "Closed" }}</p>
+  <p :class="ParagraphStyles">{{ open ? "Open" : "Closed" }}</p>
 </template>

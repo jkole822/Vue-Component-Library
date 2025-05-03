@@ -9,7 +9,7 @@ import Input from "../Input/index.vue";
 import Popover from "./index.vue";
 
 // Styles
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { ParagraphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import { AutoCompleteEnum } from "../Input/types";
@@ -47,7 +47,7 @@ const id = uuid();
     />
   </Popover>
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ value }}</p>
+  <p :class="ParagraphStyles">{{ value }}</p>
   <p :class="SubHeadingStyles">Open Check</p>
-  <p :class="PararaphStyles">{{ isOpen ? "Open" : "Closed" }}</p>
+  <p :class="ParagraphStyles">{{ isOpen ? "Open" : "Closed" }}</p>
 </template>

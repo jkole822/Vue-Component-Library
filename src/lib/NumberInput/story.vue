@@ -6,7 +6,7 @@ import { ref } from "vue";
 import NumberInput from "./index.vue";
 
 // Styles
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { ParagraphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import type { Props } from "./types";
@@ -25,5 +25,5 @@ const value = ref("1");
     :modelValue="value"
   />
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ value }}</p>
+  <p :class="ParagraphStyles">{{ value }}</p>
 </template>

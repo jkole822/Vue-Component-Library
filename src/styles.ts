@@ -29,7 +29,7 @@ fa-solid
 fa-ghost
 `;
 
-export const PararaphStyles = oneLine`
+export const ParagraphStyles = oneLine`
 mt-2
 text-neutral-primary-100
 `;

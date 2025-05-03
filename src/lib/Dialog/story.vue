@@ -8,7 +8,7 @@ import Dialog from "./index.vue";
 import Input from "../Input/index.vue";
 
 // Styles
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { ParagraphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import { AutoCompleteEnum } from "../Input/types";
@@ -59,6 +59,6 @@ const handleOpen = () => {
     </div>
   </Dialog>
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">Name: {{ name }}</p>
-  <p :class="PararaphStyles">Username: {{ username }}</p>
+  <p :class="ParagraphStyles">Name: {{ name }}</p>
+  <p :class="ParagraphStyles">Username: {{ username }}</p>
 </template>

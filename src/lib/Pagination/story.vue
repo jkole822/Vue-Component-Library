@@ -6,7 +6,7 @@ import { ref } from "vue";
 import Pagination from "./index.vue";
 
 // Styles
-import { PararaphStyles, SubHeadingStyles } from "../../styles";
+import { ParagraphStyles, SubHeadingStyles } from "../../styles";
 
 // Types
 import type { Props } from "./types";
@@ -25,5 +25,5 @@ const page = ref(1);
     :page="page"
   />
   <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="PararaphStyles">{{ page }}</p>
+  <p :class="ParagraphStyles">{{ page }}</p>
 </template>
