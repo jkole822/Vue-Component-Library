@@ -25,9 +25,10 @@ export type ComboBoxSelectionBehavior =
 
 export interface ComboBoxItem {
   id: string;
-  description?: string;
-  disabled?: boolean;
+  description: string;
+  disabled: boolean;
   label: string;
+  value: string;
 }
 
 export interface Props {
@@ -63,10 +64,12 @@ export interface Props {
   openOnClick?: boolean;
   openOnKeyPress?: boolean;
   placeholder?: string;
+  positioning?: any;
   readOnly?: boolean;
   required?: boolean;
   scrollToIndexFn?: (details: any) => void;
   selectionBehavior?: ComboBoxSelectionBehavior;
+  translations?: any;
   unmountOnExit?: boolean;
   validationState?: ValidationState;
   withField?: boolean;

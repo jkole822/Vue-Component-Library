@@ -56,7 +56,7 @@ const items = ref(initialItems);
 // Computed
 const collection = computed(() =>
   createListCollection({
-    items: items.value.map((item) => ({ ...item, value: item.id })),
+    items: items.value,
   }),
 );
 
@@ -117,7 +117,7 @@ const handleRemoveItem = (value: string) => {
               aria-label="Remove item"
               :class="PillCloseButtonStyles"
             >
-              <i aria-hidden="true" className="fa-solid fa-xmark"></i>
+              <i aria-hidden="true" class="fa-solid fa-xmark"></i>
             </button>
           </span>
         </div>
