@@ -40,8 +40,8 @@ const toggleValidationState = () => {
   <p :class="SubHeadingStyles">Binding Check</p>
   <p :class="ParagraphStyles">Selected Item IDs:</p>
   <div class="flex flex-col gap-0.5 mt-1 text-sm">
-    <span v-for="id in value" :key="id">{{
-      items.find((item) => item.id === id)?.label ?? ""
+    <span v-for="val in value" :key="val">{{
+      items.find((item) => item.value === val)?.label ?? ""
     }}</span>
   </div>
   <Button v-if="withField" @click="toggleValidationState" className="mt-10"
