@@ -28,6 +28,7 @@ export interface Props {
   getAriaValueText?: (details: any) => string;
   getRootNode?: () => Node | Document | ShadowRoot;
   id?: string;
+  markers?: number[];
   max?: number;
   min?: number;
   minStepsBetweenThumbs?: number;

@@ -13,6 +13,20 @@ transition-colors
 in-data-invalid:text-red-400
 `;
 
+export const MarkerStyles = oneLine`
+font-bold
+relative
+text-sm
+
+after:-top-1
+after:-translate-x-1/2
+after:absolute
+after:bg-neutral-primary-50
+after:left-1/2
+after:rounded-full
+after:size-1
+`;
+
 export const RangeStyles = oneLine`
 absolute
 bg-primary-500

@@ -17,6 +17,7 @@ const meta = {
     description: faker.lorem.sentence(),
     dir: SliderDirEnum.LTR,
     errorMessage: faker.lorem.sentence(),
+    markers: [25, 50, 75],
     max: 100,
     min: 0,
     minStepsBetweenThumbs: 0,
@@ -79,6 +80,12 @@ const meta = {
     id: {
       control: "text",
       description: "Unique identifier for the slider.",
+    },
+    markers: {
+      control: "object",
+      description:
+        "Places markers on the slider track according to the provided list of numeric values.",
+      table: { type: { summary: "number[]" } },
     },
     max: {
       control: "number",

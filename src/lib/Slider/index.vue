@@ -7,6 +7,7 @@ import { Slider } from "@ark-ui/vue/slider";
 // Styles
 import {
   LabelStyles,
+  MarkerStyles,
   RangeStyles,
   RootStyles,
   ThumbStyles,
@@ -27,6 +28,7 @@ const {
   disabled,
   errorMessage,
   orientation = SliderOrientationEnum.Horizontal,
+  markers,
   modelValue,
   name,
   thumbSize = {
@@ -69,10 +71,23 @@ const element = computed(() => {
           v-for="(_, index) in modelValue"
           :class="ThumbStyles"
           :index="index"
+          :key="index"
         >
           <Slider.HiddenInput />
         </Slider.Thumb>
       </Slider.Control>
+      <Slider.MarkerGroup
+        v-if="!!markers && Array.isArray(markers)"
+        class="bottom-2"
+      >
+        <Slider.Marker
+          v-for="marker in markers"
+          :class="MarkerStyles"
+          :key="marker"
+          :value="marker"
+          >{{ marker }}</Slider.Marker
+        >
+      </Slider.MarkerGroup>
     </Slider.Root>
     <div v-if="withField" class="mt-2">
       <Field.HelperText v-if="description" :class="DescriptionStyles">
