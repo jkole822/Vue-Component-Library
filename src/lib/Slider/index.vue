@@ -50,6 +50,7 @@ const element = computed(() => {
     <Slider.Root
       v-bind="rest"
       @update:modelValue="$emit('update:modelValue', $event)"
+      :disabled="disabled"
       :dir="dir"
       :modelValue="modelValue"
       :orientation="orientation"
