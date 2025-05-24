@@ -96,7 +96,7 @@ const meta = {
     },
     validationState: {
       control: { type: "select" },
-      options: ["valid", "invalid"],
+      options: Object.values(ValidationStateEnum),
       description: "Displays a visual cue for the validation state.",
       table: {
         type: { summary: '"valid" | "invalid"' },
