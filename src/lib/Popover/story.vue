@@ -46,8 +46,10 @@ const id = uuid();
       required
     />
   </Popover>
-  <p :class="SubHeadingStyles">Binding Check</p>
-  <p :class="ParagraphStyles">{{ value }}</p>
-  <p :class="SubHeadingStyles">Open Check</p>
-  <p :class="ParagraphStyles">{{ open ? "Open" : "Closed" }}</p>
+  <div class="mt-75">
+    <p :class="SubHeadingStyles">Binding Check</p>
+    <p :class="ParagraphStyles">{{ value }}</p>
+    <p :class="SubHeadingStyles">Open Check</p>
+    <p :class="ParagraphStyles">{{ open ? "Open" : "Closed" }}</p>
+  </div>
 </template>

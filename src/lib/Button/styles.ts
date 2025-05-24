@@ -4,6 +4,7 @@ const SharedStyles = oneLine`
 block
 border-[3px]
 capitalize
+cursor-pointer
 duration-300
 ease-in-out
 font-semibold
@@ -50,6 +51,7 @@ ${
 const SharedLineStyles = oneLine`
 [transition-timing-function:cubic-bezier(0.25,0.8,0.25,1)]
 border-none
+cursor-pointer
 duration-[400ms]
 font-extrabold
 outline-hidden
