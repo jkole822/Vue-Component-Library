@@ -171,15 +171,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const args = {};
-
-export const Basic: Story = {
-  args,
-};
+export const Basic: Story = {};
 
 export const WithField: Story = {
   args: {
-    ...args,
     withField: true,
   },
 };
