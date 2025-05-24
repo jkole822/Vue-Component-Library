@@ -15,10 +15,10 @@ import {
 } from "./styles";
 import { DescriptionStyles, ErrorMessageStyles } from "../../styles.ts";
 
+import type { Props } from "./types";
 // Types
 import { SliderDirEnum, SliderOrientationEnum } from "./types";
 import { ValidationStateEnum } from "../../types";
-import type { Props } from "./types";
 
 // Props
 const {
@@ -77,7 +77,11 @@ const element = computed(() => {
         </Slider.Thumb>
       </Slider.Control>
       <Slider.MarkerGroup
-        v-if="!!markers && Array.isArray(markers)"
+        v-if="
+          !!markers &&
+          Array.isArray(markers) &&
+          orientation !== SliderOrientationEnum.Vertical
+        "
         class="bottom-2"
       >
         <Slider.Marker
