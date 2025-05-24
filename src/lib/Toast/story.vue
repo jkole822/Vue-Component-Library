@@ -35,7 +35,7 @@ const updateToast = () => {
   <div>
     <div class="flex gap-4">
       <Button @click="createToast">Create Toast</Button>
-      <Button @click="updateToast" :variant="ButtonVariantsEnum.outline">
+      <Button @click="updateToast" :variant="ButtonVariantsEnum.Outline">
         Update Toast
       </Button>
     </div>

@@ -24,6 +24,6 @@ const { buttonText, description, label, onValueChange } = defineProps<{
     raiseLabel
   />
   <div class="mt-5 flex justify-end">
-    <Button :variant="ButtonVariantsEnum.outline">{{ buttonText }}</Button>
+    <Button :variant="ButtonVariantsEnum.Outline">{{ buttonText }}</Button>
   </div>
 </template>

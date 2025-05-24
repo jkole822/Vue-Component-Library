@@ -29,7 +29,7 @@ const {
   showBottomGlow = false,
   target = "_self",
   type = "button",
-  variant = ButtonVariantsEnum.fill,
+  variant = ButtonVariantsEnum.Fill,
   ...rest
 } = defineProps<Props>();
 
@@ -41,15 +41,15 @@ const active = ref(false);
 
 // Computed
 const element = computed(() => (!!href ? "a" : "button"));
-const isFillButton = computed(() => variant === ButtonVariantsEnum.fill);
+const isFillButton = computed(() => variant === ButtonVariantsEnum.Fill);
 const variantStyles = computed(() =>
   isFillButton.value
     ? FillButtonStyles({ active: active.value })
-    : variant === ButtonVariantsEnum.outline
+    : variant === ButtonVariantsEnum.Outline
       ? OutlineButtonStyles({ showBottomGlow })
-      : variant === ButtonVariantsEnum.lineOne
+      : variant === ButtonVariantsEnum.LineOne
         ? LineOneButtonStyles
-        : variant === ButtonVariantsEnum.lineTwo
+        : variant === ButtonVariantsEnum.LineTwo
           ? LineTwoButtonStyles
           : ""
 );

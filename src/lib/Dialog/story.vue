@@ -32,7 +32,7 @@ const handleOpen = () => {
 <template>
   <Dialog v-bind="props" @close="() => (open = false)" :open="open">
     <template v-slot:trigger>
-      <Button @click="handleOpen" :variant="ButtonVariantsEnum.fill"
+      <Button @click="handleOpen" :variant="ButtonVariantsEnum.Fill"
         >Open Dialog
       </Button>
     </template>

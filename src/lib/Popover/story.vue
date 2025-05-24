@@ -32,7 +32,7 @@ const id = uuid();
     <template v-slot:trigger>
       <Button
         className="rounded-full! p-0! size-15!"
-        :variant="ButtonVariantsEnum.outline"
+        :variant="ButtonVariantsEnum.Outline"
       >
         <i aria-hidden="true" class="fa-solid fa-ghost text-2xl"></i>
       </Button>

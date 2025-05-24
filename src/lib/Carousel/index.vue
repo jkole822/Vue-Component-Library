@@ -79,7 +79,7 @@ onMounted(() => {
         <div :class="CardContentStyles">
           <h2 :class="HeadingStyles">{{ title }}</h2>
           <p :class="DescriptionStyles">{{ description }}</p>
-          <Button v-bind="cta" v-if="cta" :variant="ButtonVariantsEnum.outline">
+          <Button v-bind="cta" v-if="cta" :variant="ButtonVariantsEnum.Outline">
             {{ cta.title }}
           </Button>
         </div>
@@ -89,7 +89,7 @@ onMounted(() => {
       <Button
         @click="handlePrevious"
         :class="ButtonStyles"
-        :variant="ButtonVariantsEnum.fill"
+        :variant="ButtonVariantsEnum.Fill"
         aria-label="Next slide"
       >
         <i aria-hidden="true" :class="ButtonIconStyles"></i>
@@ -97,7 +97,7 @@ onMounted(() => {
       <Button
         @click="handleNext"
         :class="ButtonStyles"
-        :variant="ButtonVariantsEnum.fill"
+        :variant="ButtonVariantsEnum.Fill"
         aria-label="Next slide"
       >
         <i aria-hidden="true" :class="[ButtonIconStyles, 'rotate-180']"></i>
