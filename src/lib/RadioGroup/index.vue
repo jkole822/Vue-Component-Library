@@ -110,7 +110,7 @@ const valueIndex = computed(() => items.findIndex((item) => item === modelValue)
         </div>
       </div>
     </ArkRadioGroup.Root>
-    <div v-if="errorMessage" class="mt-2">
+    <div v-if="withField" class="mt-2">
       <Field.HelperText v-if="description" :class="DescriptionStyles">
         {{ description }}
       </Field.HelperText>
