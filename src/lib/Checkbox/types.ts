@@ -2,8 +2,8 @@ import type { ValidationState } from "../../types";
 
 export interface Props {
   asChild?: boolean;
-  className?: string;
   checked?: boolean;
+  className?: string;
   defaultChecked?: boolean;
   description?: string;
   disabled?: boolean;
