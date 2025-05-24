@@ -53,12 +53,13 @@ data-[orientation=vertical]:w-2
 export const ThumbStyles = oneLine`
 block
 bg-neutral-primary-100
+h-[var(--slider-thumb-height)]
 outline-hidden
 relative
 rounded-full
-size-5
 slider-thumb
 transition-shadow
+w-[var(--slider-thumb-width)]
 
 hover:shadow-[0_0_0_4px_--alpha(var(--color-primary-400)_/_0.4)]
 

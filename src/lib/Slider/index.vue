@@ -29,6 +29,10 @@ const {
   orientation = SliderOrientationEnum.Horizontal,
   modelValue,
   name,
+  thumbSize = {
+    height: 20,
+    width: 20,
+  },
   validationState,
   withField,
   ...rest
@@ -54,6 +58,7 @@ const element = computed(() => {
       :dir="dir"
       :modelValue="modelValue"
       :orientation="orientation"
+      :thumbSize="thumbSize"
     >
       <Slider.Label :class="LabelStyles">{{ name }}</Slider.Label>
       <Slider.Control :class="RootStyles">

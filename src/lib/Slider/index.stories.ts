@@ -24,6 +24,7 @@ const meta = {
     name: faker.lorem.word(),
     orientation: SliderOrientationEnum.Horizontal,
     step: 1,
+    thumbSize: { height: 20, width: 20 },
     validationState: ValidationStateEnum.Valid,
   },
   argTypes: {
