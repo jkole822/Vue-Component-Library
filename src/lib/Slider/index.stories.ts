@@ -48,6 +48,11 @@ const meta = {
       control: "text",
       description: "Custom class name for the slider container.",
     },
+    description: {
+      control: "text",
+      description:
+        "Description text displayed below the radio group (often for accessibility).",
+    },
     dir: {
       control: "select",
       description: "The document's text/writing direction.",
@@ -60,6 +65,10 @@ const meta = {
     disabled: {
       control: "boolean",
       description: "Disables interaction with the slider.",
+    },
+    errorMessage: {
+      control: "text",
+      description: "Error message displayed if validation fails.",
     },
     form: {
       control: "text",
