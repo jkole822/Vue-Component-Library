@@ -123,8 +123,8 @@ const element = computed(() => (withField ? Field.Root : "div"));
               <ColorPicker.ChannelSlider
                 v-for="channel in ['hue', 'alpha'] as const"
                 :channel="channel"
+                :class="[channel === 'hue' ? 'mb-2' : '', 'cursor-pointer']"
                 :key="channel"
-                class="cursor-pointer mb-2"
               >
                 <ColorPicker.TransparencyGrid
                   v-if="channel === 'alpha'"
