@@ -20,6 +20,7 @@ import {
   SwatchTriggerStyles,
   ThumbStyles,
   TriggerStyles,
+  ValueSwatchStyles,
   ViewStyles,
 } from "./styles.ts";
 import { DescriptionStyles, ErrorMessageStyles } from "../../styles.ts";
@@ -100,9 +101,9 @@ const element = computed(() => (withField ? Field.Root : "div"));
             :key="channel"
           />
         </ColorPicker.View>
-        <ColorPicker.Trigger :class="[TriggerStyles, 'rounded size-12']">
-          <ColorPicker.TransparencyGrid class="rounded" />
-          <ColorPicker.ValueSwatch class="size-8 rounded" />
+        <ColorPicker.Trigger :class="[TriggerStyles, 'size-12']">
+          <ColorPicker.TransparencyGrid class="rounded-md" />
+          <ColorPicker.ValueSwatch :class="ValueSwatchStyles" />
         </ColorPicker.Trigger>
       </ColorPicker.Control>
       <ColorPicker.Positioner>

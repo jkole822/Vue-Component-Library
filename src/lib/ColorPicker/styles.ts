@@ -126,9 +126,9 @@ size-5
 
 export const SwatchTriggerStyles = oneLine`
 color-picker-swatch-trigger
+mr-1
 outline-none
 ring-primary-neutral-50
-rounded
 transition-all
 
 focus-visible:ring-2
@@ -152,7 +152,13 @@ cursor-pointer
 inline-flex
 items-center
 justify-center
-size-6
+rounded
+`;
+
+export const ValueSwatchStyles = oneLine`
+!bg-[var(--value)]
+rounded
+size-full
 `;
 
 export const ViewStyles = oneLine`
