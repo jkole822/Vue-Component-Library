@@ -89,6 +89,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
         <ColorPicker.View
           v-for="{ channels, format } in views"
           :class="ControlViewStyles"
+          :data-use-hex="hexInput"
           :format="format"
           :key="format"
         >
@@ -157,6 +158,7 @@ const element = computed(() => (withField ? Field.Root : "div"));
           <ColorPicker.View
             v-for="{ channels, format } in views"
             :class="ViewStyles"
+            :data-use-hex="hexInput"
             :format="format"
             :key="format"
           >

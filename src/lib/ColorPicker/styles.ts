@@ -75,8 +75,8 @@ grid
 grid-cols-1
 grow
 
-xs:grid-cols-2
-xs:data-[format=hsla]:grid-cols-3
+xs:grid-cols-4
+xs:data-[use-hex=true]:grid-cols-2
 `;
 
 export const EyeDropperIconStyles = oneLine`
@@ -159,7 +159,7 @@ export const ViewStyles = oneLine`
 color-picker-view
 gap-2
 grid
-grid-cols-2
+grid-cols-4
 
-data-[format=hsla]:grid-cols-3
+data-[use-hex=true]:grid-cols-2
 `;

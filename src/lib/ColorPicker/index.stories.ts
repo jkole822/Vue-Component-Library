@@ -157,8 +157,15 @@ export const HSLA: Story = {
   },
 };
 
-export const HexInput: Story = {
+export const RGBAWithHexInput: Story = {
   args: {
+    hexInput: true,
+  },
+};
+
+export const HSLAWithHexInput: Story = {
+  args: {
+    defaultFormat: ColorPickerFormatEnum.HSLA,
     hexInput: true,
   },
 };
