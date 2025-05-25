@@ -18,6 +18,7 @@ import type { Props } from "./types";
 
 // Props
 const {
+  className = "",
   hideDays,
   hideHours,
   hideMinutes,
@@ -56,6 +57,7 @@ const controlIcons: Record<"start" | "resume" | "pause" | "reset", string> = {
     v-bind="rest"
     @complete="$emit('complete', $event)"
     @tick="$emit('tick', $event)"
+    :class="className"
   >
     <Timer.Area :class="AreaStyles">
       <template v-for="segment in segments">
