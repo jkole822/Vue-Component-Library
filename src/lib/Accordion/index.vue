@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Packages
-import { Accordion as ArkAccordion } from "@ark-ui/vue/accordion";
+import { Accordion } from "@ark-ui/vue/accordion";
 import { computed, onMounted } from "vue";
 
 // Styles
@@ -40,37 +40,38 @@ onMounted(() => {
 </script>
 
 <template>
-  <ArkAccordion.Root
+  <Accordion.Root
     v-bind="rest"
     @update:modelValue="$emit('update:modelValue', $event)"
     :class="[className, ContainerStyles]"
+    :modelValue="modelValue"
   >
-    <ArkAccordion.Item
+    <Accordion.Item
       v-for="item in items"
       :class="SectionStyles"
       :disabled="item.disabled"
       :key="item.id"
       :value="item.id"
     >
-      <ArkAccordion.ItemTrigger :class="ButtonStyles">
+      <Accordion.ItemTrigger :class="ButtonStyles">
         <component :class="HeadingStyles" :is="headingLevelElement">
           {{ item.title }}
         </component>
-        <ArkAccordion.ItemIndicator>
+        <Accordion.ItemIndicator>
           <i
             aria-hidden="true"
             className="accordion-trigger-icon fa-solid fa-chevron-down"
           ></i>
-        </ArkAccordion.ItemIndicator>
-      </ArkAccordion.ItemTrigger>
-      <ArkAccordion.ItemContent :class="ContentStyles">
+        </Accordion.ItemIndicator>
+      </Accordion.ItemTrigger>
+      <Accordion.ItemContent :class="ContentStyles">
         <p v-if="item.description" :class="DescriptionStyles">
           {{ item.description }}
         </p>
         <div v-if="item.content" :class="ItemContentStyles">
           <component :is="item.content" />
         </div>
-      </ArkAccordion.ItemContent>
-    </ArkAccordion.Item>
-  </ArkAccordion.Root>
+      </Accordion.ItemContent>
+    </Accordion.Item>
+  </Accordion.Root>
 </template>
