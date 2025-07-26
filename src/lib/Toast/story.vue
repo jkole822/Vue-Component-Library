@@ -7,38 +7,43 @@ import { ref } from "vue";
 import Button from "../Button/index.vue";
 import Toast from "./index.vue";
 
+// Utils
+import { toast, dismissToast, updateToast } from "./toaster";
+
 // Types
 import { ButtonVariantsEnum } from "../Button/types";
-import { ToastTypeEnum } from "./types";
-import type { IToast } from "./types";
 
-const toast = ref<IToast | undefined>();
+// State
+const toastId = ref("");
 
-const createToast = () => {
-  toast.value = {
+const create = () => {
+  toastId.value = toast({
     title: faker.lorem.words(2),
     description: faker.lorem.sentence(),
-    type: ToastTypeEnum.Create,
-  };
+    type: "info",
+  });
 };
 
-const updateToast = () => {
-  toast.value = {
+const dismiss = () => {
+  dismissToast(toastId.value);
+};
+
+const update = () => {
+  updateToast(toastId.value, {
     title: faker.lorem.words(2),
     description: faker.lorem.sentence(),
-    type: ToastTypeEnum.Update,
-  };
+    type: "success",
+  });
 };
 </script>
 
 <template>
-  <div>
-    <div class="flex gap-4">
-      <Button @click="createToast">Create Toast</Button>
-      <Button @click="updateToast" :variant="ButtonVariantsEnum.Outline">
-        Update Toast
-      </Button>
-    </div>
-    <Toast :toast="toast"></Toast>
+  <div class="flex flex-col gap-4 items-start">
+    <Button @click="create" :variant="ButtonVariantsEnum.Outline"
+      >Create Toast</Button
+    >
+    <Button @click="update"> Update Toast </Button>
+    <Button @click="dismiss"> Dismiss Toast </Button>
   </div>
+  <Toast></Toast>
 </template>

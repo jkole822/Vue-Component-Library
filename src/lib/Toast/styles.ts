@@ -32,20 +32,25 @@ toast-description
 `;
 
 export const RootStyles = oneLine`
+[overflow-wrap:anywhere]
+[will-change:translate,opacity,scale]
 bg-neutral-secondary-900
-border-[1px]
-border-neutral-secondary-600
 duration-200
 ease-[cubic-bezier(0.16, 1, 0.3, 1)]
 flex
 flex-col
 gap-2
+h-[var(--height)]
 opacity-[var(--opacity)]
 p-3
+ring-[1.5px]
+ring-neutral-secondary-600
 rounded-lg
+scale-[var(--scale)]
 shadow-[0_10px_15px_-3px_rgb(0_0_0_/_0.1),_0_4px_6px_-4px_rgb(0_0_0_/_0.1)]
 toast-root
 transition-all
+translate-x-[var(--x)]
 translate-y-[var(--y)]
 w-80
 z-[var(--z-index)]

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // Packages
-import { createToaster, Toast as ArkToast, Toaster } from "@ark-ui/vue/toast";
-import { ref, watch } from "vue";
+import { Toast as ArkToast, Toaster } from "@ark-ui/vue/toast";
 
 // Styles
 import {
@@ -11,47 +10,8 @@ import {
   TitleStyles,
 } from "./styles";
 
-// Types
-import { ToastTypeEnum } from "./types";
-import type { IToast, Props } from "./types";
-
-// Props
-let { toast } = defineProps<Props>();
-
-// State
-const id = ref<string | undefined>();
-
-// Hooks
-const toaster = createToaster({
-  placement: "bottom-end",
-  overlap: false,
-  gap: 16,
-});
-
-// Helpers
-const createToast = () => {
-  if (!toast) return;
-
-  id.value = toaster.create(toast);
-};
-
-const updateToast = () => {
-  if (!id.value || !toast) return;
-
-  toaster.update(id.value, toast);
-};
-
-// Watchers
-watch(
-  () => toast,
-  (newToast?: IToast) => {
-    if (newToast?.type === ToastTypeEnum.Create) {
-      createToast();
-    } else {
-      updateToast();
-    }
-  }
-);
+// Utils
+import { toaster } from "./toaster";
 </script>
 
 <template>
